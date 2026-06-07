@@ -1,0 +1,67 @@
+---
+// src/components/Navbar.astro
+interface NavItem {
+    label: string;
+    href: string;
+}
+
+// If it's the GitHub link, open it in a new tab; otherwise, keep it local
+const navItems: NavItem[] = [
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
+    { label: "Github", href: "https://github.com/D3rrickla" },
+    { label: "Contact", href: "#contact" },
+];
+---
+
+<nav
+    class="bg-brand-surface/80 backdrop-blur-md border-b border-brand-muted/20 px-6 py-4 sticky top-0 z-50 h-16 flex items-center"
+>
+    <div class="max-w-6xl mx-auto w-full flex justify-between items-center">
+        <a
+            href="#home"
+            class="nav-link text-xl font-bold text-brand-text tracking-tight hover:text-brand-primary transition-colors"
+        >
+            Derrick<span class="text-brand-primary"> La</span>
+        </a>
+
+        <div class="flex gap-6">
+            {
+                navItems.map((item) => (
+                    <a
+                        href={item.href}
+                        target={
+                            item.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                            item.href.startsWith("http")
+                                ? "noopener noreferrer"
+                                : undefined
+                        }
+                        class="nav-link text-brand-muted font-medium hover:text-brand-text transition-all relative py-1"
+                    >
+                        {item.label}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</nav>
+
+<style>
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--color-brand-primary);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+</style>

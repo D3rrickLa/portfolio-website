@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <main id="home" class="max-w-4xl mx-auto px-6 min-h-screen flex flex-col justify-center items-center text-center pt-16">
+    <h1 class="text-5xl font-extrabold tracking-tight mb-4">
+      Hi, I'm a Developer 🚀
+    </h1>
+    <p class="text-xl text-brand-muted mb-8 max-w-xl mx-auto">
+      Welcome to my lightning-fast Astro website hosted on GitHub Pages.
+    </p>
+    <a href="#projects" class="inline-block bg-brand-primary hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-indigo-500/20 transition-all duration-200">
+      View My Work
+    </a>
+  </main>
+
+  <section id="about" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16">
+    <h2 class="text-4xl font-bold mb-6">About Me</h2>
+    <p class="text-brand-muted">Tell your story, skills, and background here.</p>
+  </section>
+
+  <section id="projects" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16">
+    <h2 class="text-4xl font-bold mb-6">My Projects</h2>
+    <p class="text-brand-muted">Your awesome portfolio cards or grid will go here.</p>
+  </section>
+
+  <section id="experience" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16">
+    <h2 class="text-4xl font-bold mb-6">Experience</h2>
+    <p class="text-brand-muted">Your work history or journey goes here.</p>
+  </section>
+</Layout>
