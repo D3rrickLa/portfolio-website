@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <Layout>
@@ -8,7 +9,7 @@ import Navbar from '../components/Navbar.astro';
 
   <main id="home" class="max-w-4xl mx-auto px-6 min-h-screen flex flex-col justify-center items-center text-center pt-16">
     <h1 class="text-5xl font-extrabold tracking-tight mb-4">
-      Hi, I'm a Developer 🚀
+      Hi there, I'm <span class="text-brand-primary">Derrick La</span>!
     </h1>
     <p class="text-xl text-brand-muted mb-8 max-w-xl mx-auto">
       Welcome to my lightning-fast Astro website hosted on GitHub Pages.
@@ -23,13 +24,19 @@ import Navbar from '../components/Navbar.astro';
     <p class="text-brand-muted">Tell your story, skills, and background here.</p>
   </section>
 
-  <section id="projects" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16">
+  <section id="projects" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16 text-right">
     <h2 class="text-4xl font-bold mb-6">My Projects</h2>
     <p class="text-brand-muted">Your awesome portfolio cards or grid will go here.</p>
+    <!-- Make this a carousel -->
   </section>
 
   <section id="experience" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16">
     <h2 class="text-4xl font-bold mb-6">Experience</h2>
     <p class="text-brand-muted">Your work history or journey goes here.</p>
+    <!-- need a component for each 'work experience' -->
+  </section>
+
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-1 min-h-screen scroll-mt-16">
+    <Contact />
   </section>
 </Layout>
