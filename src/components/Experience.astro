@@ -6,8 +6,59 @@
 interface ExperienceProps {
     title: string;
     company: string;
+    location: string;
     startDate: string; // Jan 2026
-    endDate: string;  // Apr 2026
+    endDate: string; // Apr 2026
     description: string;
 }
+
+const experienceItems: ExperienceProps[] = [
+    {
+        title: "Job Title 1",
+        company: "Company 1",
+        location: "Toronto, ON",
+        startDate: "Jan 2026",
+        endDate: "April 2026",
+        description: "Test 1",
+    },
+    {
+        title: "Job Title 2",
+        company: "Company 2",
+        location: "Mississgua, ON",
+        startDate: "Jan 2025",
+        endDate: "Dec 2025",
+        description: "Test 2",
+    },
+    {
+        title: "Job Title 3",
+        company: "Company 3",
+        location: "New York, NY",
+        startDate: "Jan 2020",
+        endDate: "April 2023",
+        description: "Test 3",
+    },
+];
 ---
+
+<div class="max-w-5xl mx-auto w-full flex flex-col gap-8">
+    {
+        experienceItems.map((item) => (
+            <div class="flex flex-col"> 
+                {/* Header row: Title on the left, Location on the right */}
+                <div class="flex justify-between items-baseline w-full">
+                    <h2 class="text-xl font-bold">{item.title}</h2>
+                    <span class="text-sm text-gray-500 font-medium">{item.location}</span>
+                </div>
+
+                {/* Subtitle row: Company and Dates */}
+                <div class="flex justify-between items-baseline text-sm text-gray-600 mt-1">
+                    <span>{item.company}</span>
+                    <span>{item.startDate} — {item.endDate}</span>
+                </div>
+
+                {/* Description */}
+                <p class="mt-3 text-gray-700 leading-relaxed">{item.description}</p>
+            </div>
+        ))
+    }
+</div>
