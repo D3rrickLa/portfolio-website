@@ -1,0 +1,98 @@
+---
+interface ProjectProps {
+    image: string;
+    tag: string; 
+    title: string;
+    description: string;
+    startEndYear: string;
+    techStack: string[];
+}
+
+// Example data array matching your interface
+const projects: ProjectProps[] = [
+    {
+        image: "/project_img/project1.jpg",
+        tag: "Blockchain",
+        title: "Decentralized Voting System",
+        description: "A secure, transparent voting platform built on Ethereum.",
+        startEndYear: "2025 - 2026",
+        techStack: ["Solidity", "React", "Hardhat"],
+    },
+    {
+        image: "/project_img/project1.jpg",
+        tag: "Blockchain",
+        title: "Decentralized Voting System",
+        description: "A secure, transparent voting platform built on Ethereum.",
+        startEndYear: "2025 - 2026",
+        techStack: ["Solidity", "React", "Hardhat"],
+    },
+    {
+        image: "/project_img/project1.jpg",
+        tag: "Blockchain",
+        title: "Decentralized Voting System",
+        description: "A secure, transparent voting platform built on Ethereum.",
+        startEndYear: "2025 - 2026",
+        techStack: ["Solidity", "React", "Hardhat"],
+    },
+    {
+        image: "/project_img/project1.jpg",
+        tag: "Blockchain",
+        title: "Decentralized Voting System",
+        description: "A secure, transparent voting platform built on Ethereum.",
+        startEndYear: "2025 - 2026",
+        techStack: ["Solidity", "React", "Hardhat"],
+    },
+    {
+        image: "/project_img/project1.jpg",
+        tag: "Blockchain",
+        title: "Decentralized Voting System",
+        description: "A secure, transparent voting platform built on Ethereum.",
+        startEndYear: "2025 - 2026",
+        techStack: ["Solidity", "React", "Hardhat"],
+    },
+    // Add more projects here...
+];
+---
+
+<div class="max-w-5xl mx-auto w-full px-4 py-12">
+    <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6">
+        {
+            projects.map((project) => (
+                <div class="min-w-[300px] sm:min-w-[400px] flex-none snap-center bg-white/5 border border-white/10 rounded-xl overflow-hidden flex flex-col">
+                    {/* Project Image */}
+                    <div class="h-48 bg-gray-800 relative">
+                        <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            class="w-full h-full object-cover"
+                        />
+                        <span class="absolute top-3 left-3 bg-indigo-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                            {project.tag}
+                        </span>
+                    </div>
+
+                    {/* Project Details */}
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-white">{project.title}</h3>
+                            <span class="text-xs text-gray-400 font-medium">{project.startEndYear}</span>
+                        </div>
+                        
+                        <p class="text-gray-300 text-sm mb-6 flex-grow">
+                            {project.description}
+                        </p>
+
+                        {/* Tech Stack Tags */}
+                        <div class="flex flex-wrap gap-2">
+                            {project.techStack.map((tech) => (
+                                <span class="bg-white/10 text-gray-300 text-xs px-2 py-1 rounded-md">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>

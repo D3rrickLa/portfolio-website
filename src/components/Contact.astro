@@ -41,6 +41,13 @@ const apiKey = import.meta.env.PUBLIC_STATIC_FORMS_KEY;
         >
             <input type="hidden" name="apiKey" value={apiKey} />
             <input
+                type="text"
+                name="_honey"
+                class="hidden"
+                style="display:none"
+            />
+
+            <input
                 type="hidden"
                 name="subject"
                 value="Contact Form Submission"
@@ -87,9 +94,14 @@ const apiKey = import.meta.env.PUBLIC_STATIC_FORMS_KEY;
                             name="message"
                             rows="6"
                             placeholder="Type your message here..."
+                            maxlength="2000"
                             required
-                            class="block w-full h-48 rounded-md bg-white/5 px-3 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                            class="block w-full h-48 rounded-md bg-white/5 px-3 pt-2 pb-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                         ></textarea>
+                        <span
+                            class="absolute right-1 text-xs text-gray-400 select-none pointer-events-none"
+                            id="char-count">0/2000</span
+                        >
                     </div>
                 </div>
 
@@ -113,6 +125,26 @@ const apiKey = import.meta.env.PUBLIC_STATIC_FORMS_KEY;
     const submitBtn = document.getElementById(
         "submit-btn",
     ) as HTMLButtonElement;
+
+    const textarea = document.getElementById("message") as HTMLTextAreaElement;
+    const charCount = document.getElementById("char-count");
+
+    // Live Character Counter Logic
+    if (textarea && charCount) {
+        textarea.addEventListener("input", () => {
+            const currentLength = textarea.value.length;
+            charCount.textContent = currentLength.toString() + "/2000";
+
+            // FIXED: Swap classList updates straight to charCount element
+            if (currentLength >= 1900) {
+                charCount.classList.remove("text-gray-400");
+                charCount.classList.add("text-amber-500", "font-bold");
+            } else {
+                charCount.classList.remove("text-amber-500", "font-bold");
+                charCount.classList.add("text-gray-400");
+            }
+        });
+    }
 
     if (form && successMessage && submitBtn) {
         form.addEventListener("submit", async (e) => {

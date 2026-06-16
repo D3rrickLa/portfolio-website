@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Contact from '../components/Contact.astro';
 import Experience from '../components/Experience.astro';
+import ProjectsCarousel from '../components/ProjectsCarousel.astro';
 ---
 
 <Layout>
@@ -27,8 +28,9 @@ import Experience from '../components/Experience.astro';
 
   <section id="projects" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16 text-right">
     <h2 class="text-4xl font-bold mb-6">My Projects</h2>
-    <p class="text-brand-muted">Your awesome portfolio cards or grid will go here.</p>
+    <!-- <p class="text-brand-muted">Your awesome portfolio cards or grid will go here.</p> -->
     <!-- Make this a carousel -->
+     <ProjectsCarousel />
   </section>
 
   <section id="experience" class="max-w-4xl mx-auto px-6 py-24 min-h-screen scroll-mt-16">
