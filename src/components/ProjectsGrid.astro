@@ -1,0 +1,195 @@
+---
+interface ProjectProps {
+    image: string;
+    tag: string;
+    title: string;
+    description: string;
+    startEndYear: string;
+    techStack: string[];
+    splashGradients: {
+        bgGradient: string;
+        textClass: string;
+    };
+}
+
+const projects: ProjectProps[] = [
+    {
+        image: "/project_img/project1.jpg",
+        tag: "Desktop App",
+        title: "Cube Solver",
+        description:
+            "Desktop application using computer vision to scan and solve Rubik's Cube in real-time.",
+        startEndYear: "2025",
+        techStack: ["C++", "OpenCV", "Algorithms"],
+        splashGradients: {
+            bgGradient: "bg-linear-to-r from-orange-500 to-red-500",
+            textClass: "text-white",
+        },
+    },
+    {
+        image: "/project_img/project2.jpg",
+        tag: "Mobile App",
+        title: "Improvement Tree",
+        description:
+            "Full-stack mobile app with cloud server that gamifies personal development.",
+        startEndYear: "2026",
+        techStack: ["React Native", "Expo", "Java", "Spring Boot"],
+        splashGradients: {
+            bgGradient: "bg-[linear-gradient(130deg,#1D1D20_20%,#00A86B_80%)]",
+            textClass: "text-white",
+        },
+    },
+    {
+        image: "/project_img/project3.jpg",
+        tag: "Desktop App",
+        title: "Nebula",
+        description:
+            "Arcade runner game with procedural terrain generation and dynamic gameplay.",
+        startEndYear: "2024",
+        techStack: ["Python", "Kivy", "Game Dev"],
+        splashGradients: {
+            bgGradient: "bg-[linear-gradient(130deg,#1D1D20_20%,#C127C1_80%)]",
+            textClass: "text-white",
+        },
+    },
+    {
+        image: "/project_img/project3.jpg",
+        tag: "Desktop App",
+        title: "Nebula",
+        description:
+            "Arcade runner game with procedural terrain generation and dynamic gameplay.",
+        startEndYear: "2024",
+        techStack: ["Python", "Kivy", "Game Dev"],
+        splashGradients: {
+            bgGradient: "bg-[linear-gradient(130deg,#1D1D20_20%,#C127C1_80%)]",
+            textClass: "text-white",
+        },
+    },
+];
+---
+
+<div class="max-w-7xl mx-auto w-full px-6 py-12 relative z-10">
+    {/* Modern 3-column layout grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+            projects.map((project, index) => {
+                const isFeatured = index === 0;
+                const displayIndex = String(index + 1).padStart(2, "0");
+
+                return (
+                    <div
+                        class={`border border-zinc-800 rounded-3xl overflow-hidden flex flex-col group transition-all duration-300 shadow-2xl ${
+                            project.splashGradients.bgGradient
+                        } ${project.splashGradients.textClass} ${
+                            isFeatured
+                                ? "md:col-span-2 lg:col-span-3 md:flex-row"
+                                : ""
+                        }`}
+                    >
+                        {/* Project Image Box */}
+                        <div
+                            class={`bg-zinc-900 relative overflow-hidden border-zinc-800 ${
+                                isFeatured
+                                    ? "h-64 md:h-auto md:w-[38%] flex-none border-b md:border-b-0 md:border-r"
+                                    : "h-52 border-b"
+                            }`}
+                        >
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 ease-out opacity-90"
+                            />
+                            <span class="absolute top-3 left-3 bg-indigo-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                                {project.tag}
+                            </span>
+                        </div>
+
+                        {/* Project Details Box */}
+                        <div
+                            class={`p-6 flex flex-col flex-grow justify-between ${isFeatured ? "md:p-8" : ""}`}
+                        >
+                            <div>
+                                <div class="flex justify-between items-start mb-3 gap-4">
+                                    <h3 class="text-xl font-bold tracking-wide uppercase flex items-baseline gap-2">
+                                        <span class="text-zinc-500 font-mono text-lg font-medium">
+                                            {displayIndex}
+                                        </span>
+                                        <span>{project.title}</span>
+                                    </h3>
+
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs text-zinc-500 font-mono tracking-wider whitespace-nowrap">
+                                            {project.startEndYear}
+                                        </span>
+                                        {isFeatured && (
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                class="text-zinc-400 group-hover:text-white transition-colors"
+                                            >
+                                                <path d="M15 3h6v6" />
+                                                <path d="M10 14 21 3" />
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                            </svg>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <p class="text-sm text-white leading-relaxed mb-6">
+                                    {project.description}
+                                </p>
+                            </div>
+
+                            {/* Tech Stack Tags */}
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                {project.techStack.map((tech) => (
+                                    <span class="bg-zinc-800/60 border border-zinc-700/50 text-xs text-zinc-300 px-3 py-1 rounded-xl font-medium tracking-wide">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+
+    {/* GitHub Explore CTA with sliding external-link icon */}
+    <div class="flex justify-center mt-20 pt-10 border-t border-white/5">
+        <a
+            href="https://github.com/Szostak21?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-xl font-semibold text-accent hover:text-accent-hover transition-colors text-center text-pretty"
+        >
+            <span>Explore all projects on GitHub</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-external-link group-hover:translate-x-1.5 group-hover:-translate-y-1.5 transition-transform duration-300"
+                aria-hidden="true"
+            >
+                <path d="M15 3h6v6"></path>
+                <path d="M10 14 21 3"></path>
+                <path
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+            </svg>
+        </a>
+    </div>
+</div>
