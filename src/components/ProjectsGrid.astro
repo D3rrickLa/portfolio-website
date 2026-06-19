@@ -6,10 +6,7 @@ interface ProjectProps {
     description: string;
     startEndYear: string;
     techStack: string[];
-    splashGradients: {
-        bgGradient: string;
-        textClass: string;
-    };
+    accentColor: string;
 }
 
 const projects: ProjectProps[] = [
@@ -21,10 +18,7 @@ const projects: ProjectProps[] = [
             "Desktop application using computer vision to scan and solve Rubik's Cube in real-time.",
         startEndYear: "2025",
         techStack: ["C++", "OpenCV", "Algorithms"],
-        splashGradients: {
-            bgGradient: "bg-linear-to-r from-orange-500 to-red-500",
-            textClass: "text-white",
-        },
+        accentColor: "#FF5E00", // Clean hex value
     },
     {
         image: "/project_img/project2.jpg",
@@ -34,10 +28,7 @@ const projects: ProjectProps[] = [
             "Full-stack mobile app with cloud server that gamifies personal development.",
         startEndYear: "2026",
         techStack: ["React Native", "Expo", "Java", "Spring Boot"],
-        splashGradients: {
-            bgGradient: "bg-[linear-gradient(130deg,#1D1D20_20%,#00A86B_80%)]",
-            textClass: "text-white",
-        },
+        accentColor: "#00A86B",
     },
     {
         image: "/project_img/project3.jpg",
@@ -47,23 +38,17 @@ const projects: ProjectProps[] = [
             "Arcade runner game with procedural terrain generation and dynamic gameplay.",
         startEndYear: "2024",
         techStack: ["Python", "Kivy", "Game Dev"],
-        splashGradients: {
-            bgGradient: "bg-[linear-gradient(130deg,#1D1D20_20%,#C127C1_80%)]",
-            textClass: "text-white",
-        },
+        accentColor: "#C127C1",
     },
     {
         image: "/project_img/project3.jpg",
         tag: "Desktop App",
-        title: "Nebula",
+        title: "Test 3",
         description:
             "Arcade runner game with procedural terrain generation and dynamic gameplay.",
         startEndYear: "2024",
         techStack: ["Python", "Kivy", "Game Dev"],
-        splashGradients: {
-            bgGradient: "bg-[linear-gradient(130deg,#1D1D20_20%,#C127C1_80%)]",
-            textClass: "text-white",
-        },
+        accentColor: "#2327C1",
     },
 ];
 ---
@@ -79,12 +64,11 @@ const projects: ProjectProps[] = [
                 return (
                     <div
                         class={`border border-zinc-800 rounded-3xl overflow-hidden flex flex-col group transition-all duration-300 shadow-2xl ${
-                            project.splashGradients.bgGradient
-                        } ${project.splashGradients.textClass} ${
                             isFeatured
                                 ? "md:col-span-2 lg:col-span-3 md:flex-row"
                                 : ""
-                        }`}
+                        } bg-gradient-to-br from-zinc-950 via-zinc-950/90 to-[var(--project-accent)]/20`}
+                        style={`--project-accent: ${project.accentColor};`}
                     >
                         {/* Project Image Box */}
                         <div
@@ -99,14 +83,14 @@ const projects: ProjectProps[] = [
                                 alt={project.title}
                                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 ease-out opacity-90"
                             />
-                            <span class="absolute top-3 left-3 bg-indigo-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                            <span class="absolute top-3 left-3 bg-zinc-900/80 backdrop-blur-md text-zinc-300 text-xs font-mono tracking-wider px-2.5 py-1 rounded-full border border-zinc-800 uppercase">
                                 {project.tag}
                             </span>
                         </div>
 
                         {/* Project Details Box */}
                         <div
-                            class={`p-6 flex flex-col flex-grow justify-between ${isFeatured ? "md:p-8" : ""}`}
+                            class={`flex flex-col flex-grow justify-between ${isFeatured ? "md:p-8" : "py-12 px-6"}`}
                         >
                             <div>
                                 <div class="flex justify-between items-start mb-3 gap-4">
@@ -142,7 +126,7 @@ const projects: ProjectProps[] = [
                                     </div>
                                 </div>
 
-                                <p class="text-sm text-white leading-relaxed mb-6">
+                                <p class="text-sm text-zinc-400 leading-relaxed mb-6">
                                     {project.description}
                                 </p>
                             </div>
@@ -150,7 +134,7 @@ const projects: ProjectProps[] = [
                             {/* Tech Stack Tags */}
                             <div class="flex flex-wrap gap-2 mt-auto">
                                 {project.techStack.map((tech) => (
-                                    <span class="bg-zinc-800/60 border border-zinc-700/50 text-xs text-zinc-300 px-3 py-1 rounded-xl font-medium tracking-wide">
+                                    <span class="bg-zinc-900/60 border border-[var(--project-accent)]/20 text-xs text-zinc-300 px-3 py-1 rounded-xl font-medium tracking-wide">
                                         {tech}
                                     </span>
                                 ))}
