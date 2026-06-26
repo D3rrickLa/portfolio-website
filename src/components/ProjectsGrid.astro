@@ -53,30 +53,39 @@ const projects: ProjectProps[] = [
 ];
 ---
 
-<div class="max-w-7xl mx-auto w-full px-6 py-12 relative z-10">
-    {/* Modern 3-column layout grid */}
+<div class="max-w-7xl mx-auto w-full px-6 py-12 relative z-10">    
+    <!-- 1 col on mobile, 2 cols on tablet (md), 3 cols on desktop (lg) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
             projects.map((project, index) => {
-                const isFeatured = index === 0;
                 const displayIndex = String(index + 1).padStart(2, "0");
+                
+                // Determine layout types based on the array position
+                const isFirst = index === 0;
+                const isSecond = index === 1;
 
                 return (
                     <div
-                        class={`border border-zinc-800 rounded-3xl overflow-hidden flex flex-col group transition-all duration-300 shadow-2xl ${
-                            isFeatured
-                                ? "md:col-span-2 lg:col-span-3 md:flex-row"
-                                : ""
-                        } bg-gradient-to-br from-zinc-950 via-zinc-950/90 to-[var(--project-accent)]/20`}
+                        class={`border border-zinc-800 rounded-3xl overflow-hidden flex flex-col group transition-all duration-300 shadow-2xl bg-gradient-to-br from-zinc-950 via-zinc-950/90 to-[var(--project-accent)]/20
+                            ${
+                                isFirst
+                                    ? "md:col-span-2 lg:col-span-3 lg:flex-row" 
+                                    : isSecond
+                                        ? "md:col-span-2 lg:col-span-1" 
+                                        : ""
+                            }`}
                         style={`--project-accent: ${project.accentColor};`}
                     >
                         {/* Project Image Box */}
                         <div
-                            class={`bg-zinc-900 relative overflow-hidden border-zinc-800 ${
-                                isFeatured
-                                    ? "h-64 md:h-auto md:w-[38%] flex-none border-b md:border-b-0 md:border-r"
-                                    : "h-52 border-b"
-                            }`}
+                            class={`bg-zinc-900 relative overflow-hidden border-zinc-800 
+                                ${
+                                    isFirst
+                                        ? "h-64 lg:h-auto lg:w-[38%] flex-none border-b lg:border-b-0 lg:border-r"
+                                        : isSecond
+                                            ? "h-52 border-b md:h-64 md:lg:h-52" 
+                                            : "h-52 border-b"
+                                }`}
                         >
                             <img
                                 src={project.image}
@@ -90,11 +99,16 @@ const projects: ProjectProps[] = [
 
                         {/* Project Details Box */}
                         <div
-                            class={`flex flex-col flex-grow justify-between ${isFeatured ? "md:p-8" : "py-12 px-6"}`}
+                            class={`flex flex-col flex-grow justify-between 
+                                ${
+                                    isFirst 
+                                        ? "lg:p-8 p-6" 
+                                        : "py-12 px-6"
+                                }`}
                         >
                             <div>
                                 <div class="flex justify-between items-start mb-3 gap-4">
-                                    <h3 class="text-xl font-bold tracking-wide uppercase flex items-baseline gap-2">
+                                    <h3 class="text-xl font-bold tracking-wide uppercase flex items-baseline gap-2 text-white">
                                         <span class="text-zinc-500 font-mono text-lg font-medium">
                                             {displayIndex}
                                         </span>
@@ -105,7 +119,8 @@ const projects: ProjectProps[] = [
                                         <span class="text-xs text-zinc-500 font-mono tracking-wider whitespace-nowrap">
                                             {project.startEndYear}
                                         </span>
-                                        {isFeatured && (
+                                        {/* External link icon shows on large screens only for the absolute first featured project */}
+                                        {isFirst && (
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="16"
@@ -116,7 +131,7 @@ const projects: ProjectProps[] = [
                                                 stroke-width="2"
                                                 stroke-linecap="round"
                                                 stroke-linejoin="round"
-                                                class="text-zinc-400 group-hover:text-white transition-colors"
+                                                class="text-zinc-400 group-hover:text-white transition-colors hidden lg:block"
                                             >
                                                 <path d="M15 3h6v6" />
                                                 <path d="M10 14 21 3" />
@@ -149,7 +164,7 @@ const projects: ProjectProps[] = [
     {/* GitHub Explore CTA with sliding external-link icon */}
     <div class="flex justify-center mt-20 pt-10 border-t border-white/5">
         <a
-            href="https://github.com/Szostak21?tab=repositories"
+            href="https://github.com/D3rrickLa?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
             class="group inline-flex items-center gap-2 sm:gap-3 text-sm sm:text-xl font-semibold text-accent hover:text-accent-hover transition-colors text-center text-pretty"
