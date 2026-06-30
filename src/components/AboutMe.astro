@@ -27,7 +27,7 @@ const profile = {
     title: "Mindset",
     highlight: "Building more than software.",
     body: "My passions provide the discipline and focus I need to grow.",
-    imageSrc: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop",
+    imageSrc: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop", 
     imageAlt: "Calisthenics training setup",
     badgeLabel: "Calisthenics",
     footer: "Mastering body and mind is my path to excellence."
@@ -35,7 +35,7 @@ const profile = {
 
   // Central Profile / Location Card
   avatar: {
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop",
+    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop", 
     alt: "Derrick La Portrait",
     location: "Toronto, Canada",
     coordinates: "43.6532° N, 79.3832° W",
@@ -47,7 +47,8 @@ const profile = {
     title: "Craft",
     highlight: "Building scalable apps, websites, and automations.",
     advice: "I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.",
-    techStack: ["TS", "React", "Python", "Tailwind", "Astro", "Node"],
+    // Duplicated items inside the markup to provide a seamless infinite carousel track loop
+    techStack: ["TS", "React", "Python", "Tailwind", "Astro", "Node", "C++", "OpenCV", "Java", "Spring Boot"],
     footer: "Active Hackathon competitor & Science Club member. Feel free to invite me to collaborate.",
     statusText: "Open to collaboration & freelance"
   }
@@ -55,34 +56,40 @@ const profile = {
 ---
 
 <!-- Bento Grid Container -->
-<div class="max-w-6xl mx-auto px-6 py-12 text-white font-sans selection:bg-purple-500/30">
-    <!-- Grid Layout Setup -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[minmax(140px,_auto)]">
+<div class="max-w-6xl mx-auto px-6 py-12 text-white font-sans selection:bg-fuchsia-500/30">
+    <!-- Adjusted auto-rows down from minmax(140px) to minmax(110px) to shrink the top-row heights nicely -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[minmax(110px,_auto)]">
         
         <!-- 1. Name Card -->
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-6 lg:col-span-1 flex flex-col justify-center items-center text-center group hover:border-zinc-700/80 transition-all duration-300">
-            <h1 class="text-3xl font-extrabold tracking-wider uppercase drop-shadow-md">
-                {profile.name.first} <span class="text-zinc-400 font-medium">{profile.name.last}</span>
+        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-1 flex flex-col justify-center items-center text-center group hover:border-fuchsia-500/50 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+            <h1 class="text-2xl font-extrabold tracking-wider uppercase drop-shadow-md">
+                <!-- Animated Lava Lamp First Name -->
+                <span class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-cyan-400 via-fuchsia-500 to-fuchsia-400 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava">
+                    {profile.name.first}
+                </span> 
+                <span class="text-zinc-400 font-medium">{profile.name.last}</span>
             </h1>
-            <p class="text-xs text-zinc-500 font-mono tracking-widest uppercase mt-2">
+            <p class="text-[10px] text-zinc-500 font-mono tracking-widest uppercase mt-1">
                 {profile.role}
             </p>
         </div>
 
         <!-- 2. Interactive Spaced Reveal Deck -->
-        <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-6 lg:col-span-2 flex flex-col justify-end group/container hover:border-zinc-700/80 transition-all duration-300 overflow-hidden">            
-            <span class="absolute top-4 right-6 text-[10px] font-bold text-purple-400/80 font-mono tracking-widest uppercase pointer-events-none">
+        <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-2 flex flex-col justify-end group/container hover:border-purple-500/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.8)]">            
+            
+            <!-- This badge now vanishes cleanly when you hover anywhere inside this Bento card -->
+            <span class="absolute top-3 right-5 text-[9px] font-bold text-fuchsia-400/80 font-mono tracking-widest uppercase pointer-events-none transition-opacity duration-300 group-hover/container:opacity-0 z-40">
                 Hover to read more
             </span>
             
-            <div class="relative w-full flex flex-col items-center justify-center min-h-[260px] lg:min-h-0 lg:h-36">
+            <div class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28">
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none">                    
                     
                     <!-- Left Card -->
                     <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
-                                lg:absolute lg:top-2 lg:left-[5%] lg:w-56 lg:h-26 lg:opacity-60 lg:-rotate-6 lg:z-10
-                                hover:lg:h-46 hover:lg:opacity-100 hover:lg:-translate-y-12 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-purple-500/50">
-                        <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-purple-400">{profile.deck.left.title}</h4>
+                                lg:absolute lg:top-1 lg:left-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:-rotate-6 lg:z-10
+                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-amber-500/50">
+                        <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-amber-400">{profile.deck.left.title}</h4>
                         <p class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
                             {profile.deck.left.desc}
                         </p>
@@ -91,8 +98,8 @@ const profile = {
 
                     <!-- Middle Card -->
                     <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
-                                lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-26 lg:z-20
-                                hover:lg:h-46 hover:lg:-translate-y-12 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60">
+                                lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-24 lg:z-20
+                                hover:lg:h-40 hover:lg:-translate-y-10 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60">
                         <h4 class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400">{profile.deck.center.title}</h4>
                         <p class="text-[11px] text-zinc-400 leading-normal mt-2 text-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
                             {profile.deck.center.desc}
@@ -102,9 +109,9 @@ const profile = {
 
                     <!-- Right Card -->
                     <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
-                                lg:absolute lg:top-2 lg:right-[5%] lg:w-56 lg:h-26 lg:opacity-60 lg:rotate-6 lg:z-10
-                                hover:lg:h-46 hover:lg:opacity-100 hover:lg:-translate-y-12 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-purple-500/50">
-                        <h4 class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-purple-400">{profile.deck.right.title}</h4>
+                                lg:absolute lg:top-1 lg:right-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:rotate-6 lg:z-10
+                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-cyan-500/50">
+                        <h4 class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-cyan-400">{profile.deck.right.title}</h4>
                         <p class="text-[11px] text-zinc-500 leading-normal mt-2 text-right opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
                             {profile.deck.right.desc}
                         </p>
@@ -116,25 +123,26 @@ const profile = {
         </div>
 
         <!-- 3. Mindset Card -->
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-2 group hover:border-zinc-700/80 transition-all duration-300">
+        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-fuchsia-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
                     {profile.mindset.title}
-                    <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-purple-500 rounded"></span>
+                    <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"></span>
                 </h2>
                 <p class="text-zinc-400 text-sm leading-relaxed mt-4">
                     <strong class="text-zinc-200">{profile.mindset.highlight}</strong> {profile.mindset.body}
                 </p>
             </div>
             
-            <!-- Hobby Graphic Stack with Dynamic Image Mapping -->
+            <!-- Hobby Graphic Layer with Smooth Fade to Black Gradient Layer -->
             <div class="my-6 relative h-36 flex items-center justify-center overflow-hidden">
-                <div class="absolute w-24 h-28 bg-zinc-800/40 border border-zinc-700/20 rounded-xl -rotate-12 -translate-x-12 opacity-40"></div>
-                <div class="absolute w-24 h-28 bg-zinc-800/40 border border-zinc-700/20 rounded-xl rotate-12 translate-x-12 opacity-40"></div>
-                <div class="w-28 h-32 bg-zinc-950 border-2 border-purple-500/40 rounded-2xl relative overflow-hidden z-10 p-2 shadow-2xl flex flex-col justify-end">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-110" />
-                    <span class="text-[10px] font-mono uppercase font-bold text-center relative z-20 text-white tracking-wider">{profile.mindset.badgeLabel}</span>
+                <div class="absolute w-24 h-28 bg-zinc-800/20 border border-zinc-700/10 rounded-xl -rotate-12 -translate-x-12 opacity-30"></div>
+                <div class="absolute w-24 h-28 bg-zinc-800/20 border border-zinc-700/10 rounded-xl rotate-12 translate-x-12 opacity-30"></div>
+                <div class="w-28 h-32 bg-zinc-950 border-2 border-purple-500/30 rounded-2xl relative overflow-hidden z-10 p-2 shadow-2xl flex flex-col justify-end group/image">
+                    <!-- Smooth fade to black container layers -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent z-10"></div>
+                    <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-40 transition-all duration-500 group-hover:scale-110 group-hover:opacity-60" />
+                    <span class="text-[10px] font-mono uppercase font-bold text-center relative z-20 text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{profile.mindset.badgeLabel}</span>
                 </div>
             </div>
 
@@ -144,34 +152,36 @@ const profile = {
         </div>
 
         <!-- 4 & 5 Combined: Main Avatar + Location Frame -->
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-2 flex flex-col justify-between group hover:border-zinc-700/80 transition-all duration-300 min-h-[400px] lg:min-h-0">
-            <!-- Dynamic Avatar Image Block -->
-            <div class="w-full h-full min-h-[220px] bg-zinc-800 relative overflow-hidden flex items-center justify-center">
-                <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 min-h-[400px] lg:min-h-0 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+            <!-- Dynamic Avatar with Fade Mask overlay -->
+            <div class="w-full h-full min-h-[220px] bg-zinc-950 relative overflow-hidden flex items-center justify-center">
+                <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" />
+                <!-- Smooth vertical black fade out across bottom block -->
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90"></div>
             </div>
 
             <!-- Integrated Location Panel -->
-            <div class="bg-zinc-950/40 border-t border-zinc-800/80 p-6 overflow-hidden relative flex flex-col justify-end">
-                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="bg-zinc-950/80 p-6 overflow-hidden relative flex flex-col justify-end">
+                <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 
                 <div class="relative z-10">
-                    <h3 class="text-xl font-black text-zinc-200 tracking-tight uppercase">
+                    <h3 class="text-xl font-black bg-gradient-to-r from-zinc-100 to-zinc-400 bg-clip-text text-transparent tracking-tight uppercase">
                         {profile.avatar.location}
                     </h3>
                     <div class="flex justify-between items-center text-[10px] font-mono text-zinc-500 tracking-widest mt-1">
                         <span>{profile.avatar.coordinates}</span>
-                        <span class="text-purple-400/80 font-bold">- {profile.avatar.timezone}</span>
+                        <span class="text-cyan-400 font-bold">- {profile.avatar.timezone}</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 6. Craft Card -->
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-2 group hover:border-zinc-700/80 transition-all duration-300">
+        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-cyan-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
                     {profile.craft.title}
-                    <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-purple-500 rounded"></span>
+                    <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-cyan-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"></span>
                 </h2>
                 <p class="text-zinc-400 text-sm leading-relaxed mt-4">
                     {profile.craft.highlight}
@@ -181,11 +191,24 @@ const profile = {
                 </p>
             </div>
 
-            <!-- Loopable Tech Stack Badges -->
-            <div class="flex flex-wrap gap-2 py-4 my-2 border-y border-zinc-800/60 text-[10px] text-zinc-400 font-mono uppercase font-semibold">
-                {profile.craft.techStack.map((tech) => (
-                    <span class="flex items-center gap-1 bg-zinc-950 px-2 py-1 rounded-md border border-zinc-800">{tech}</span>
-                ))}
+            <!-- Seamless Infinite Auto-Scrolling Tech Stack -->
+            <div class="relative w-full overflow-hidden my-4 py-3 border-y border-zinc-800/60 flex gap-4">
+                <!-- Fade Edges -->
+                <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none"></div>
+                
+                <!-- The actual loop setup (Using flex-none min-w-full removes structural layout calculation flaws) -->
+                <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-zinc-400 font-mono uppercase font-semibold">
+                    {profile.craft.techStack.map((tech) => (
+                        <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 text-cyan-300/90 shadow-sm shadow-purple-500/5">{tech}</span>
+                    ))}
+                </div>
+                <!-- Clean Duplicate Track -->
+                <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-zinc-400 font-mono uppercase font-semibold" aria-hidden="true">
+                    {profile.craft.techStack.map((tech) => (
+                        <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 text-cyan-300/90 shadow-sm shadow-purple-500/5">{tech}</span>
+                    ))}
+                </div>
             </div>
 
             <div>
@@ -193,10 +216,39 @@ const profile = {
                     {profile.craft.footer}
                 </p>
                 <div class="flex items-center gap-2 text-xs font-medium text-emerald-400">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#56D677] animate-pulse"></span>
                     {profile.craft.statusText}
                 </div>
             </div>
         </div>
+
     </div>
 </div>
+
+<style>
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100% - 1rem)); } /* -1rem accounts perfectly for the parent flex gap-4 offset */
+    }
+    .animate-marquee {
+        animation: marquee 25s linear infinite;
+    }
+
+    @keyframes lava-shift {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .animate-lava {
+        /* Adjust the '8s' duration to make it faster or slower/lazier */
+        animation: lava-shift 8s ease infinite;
+    }
+
+</style>
