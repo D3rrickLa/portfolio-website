@@ -1,149 +1,202 @@
+---
+const profile = {
+  name: {
+    first: "Derrick",
+    last: "La"
+  },
+  role: "Fullstack Developer",
+  
+  // Top Spaced Reveal Deck
+  deck: {
+    left: {
+      title: "Science Club",
+      desc: "Active member developing custom workflows."
+    },
+    center: {
+      title: "University",
+      desc: "Pursuing Computer Science & Engineering."
+    },
+    right: {
+      title: "Competitions",
+      desc: "Hackathon runner-up and builder."
+    }
+  },
+
+  // Mindset Card
+  mindset: {
+    title: "Mindset",
+    highlight: "Building more than software.",
+    body: "My passions provide the discipline and focus I need to grow.",
+    imageSrc: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop",
+    imageAlt: "Calisthenics training setup",
+    badgeLabel: "Calisthenics",
+    footer: "Mastering body and mind is my path to excellence."
+  },
+
+  // Central Profile / Location Card
+  avatar: {
+    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop",
+    alt: "Derrick La Portrait",
+    location: "Toronto, Canada",
+    coordinates: "43.6532° N, 79.3832° W",
+    timezone: "EST"
+  },
+
+  // Craft Card
+  craft: {
+    title: "Craft",
+    highlight: "Building scalable apps, websites, and automations.",
+    advice: "I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.",
+    techStack: ["TS", "React", "Python", "Tailwind", "Astro", "Node"],
+    footer: "Active Hackathon competitor & Science Club member. Feel free to invite me to collaborate.",
+    statusText: "Open to collaboration & freelance"
+  }
+};
+---
+
 <!-- Bento Grid Container -->
 <div class="max-w-6xl mx-auto px-6 py-12 text-white font-sans selection:bg-purple-500/30">
-    <!-- 1 Column on Mobile, 2 Columns on Tablet, 3 Columns on Desktop -->
+    <!-- Grid Layout Setup -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[minmax(140px,_auto)]">
         
-        <!-- 1. Name Card (Top Left - Restored to original single item) -->
+        <!-- 1. Name Card -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-6 lg:col-span-1 flex flex-col justify-center items-center text-center group hover:border-zinc-700/80 transition-all duration-300">
             <h1 class="text-3xl font-extrabold tracking-wider uppercase drop-shadow-md">
-                Derrick <span class="text-zinc-400 font-medium">La</span>
+                {profile.name.first} <span class="text-zinc-400 font-medium">{profile.name.last}</span>
             </h1>
             <p class="text-xs text-zinc-500 font-mono tracking-widest uppercase mt-2">
-                Fullstack Developer
+                {profile.role}
             </p>
         </div>
 
-        <!-- 2. Interactive Spaced Reveal Deck (Top Middle & Right - Takes 2 Columns) -->
-        <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-6 lg:col-span-2 flex flex-col justify-end group/container hover:border-zinc-700/80 transition-all duration-300 overflow-hidden">            <span class="absolute top-4 right-6 text-[10px] font-bold text-purple-400/80 font-mono tracking-widest uppercase pointer-events-none">
+        <!-- 2. Interactive Spaced Reveal Deck -->
+        <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-6 lg:col-span-2 flex flex-col justify-end group/container hover:border-zinc-700/80 transition-all duration-300 overflow-hidden">            
+            <span class="absolute top-4 right-6 text-[10px] font-bold text-purple-400/80 font-mono tracking-widest uppercase pointer-events-none">
                 Hover to read more
             </span>
-            <!-- Bottom Section: Sleek Spaced Hover Deck -->
+            
             <div class="relative w-full flex flex-col items-center justify-center min-h-[260px] lg:min-h-0 lg:h-36">
-                
-                <!-- The Deck Layout Container -->
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none">                    
+                    
                     <!-- Left Card -->
                     <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
                                 lg:absolute lg:top-2 lg:left-[5%] lg:w-56 lg:h-26 lg:opacity-60 lg:-rotate-6 lg:z-10
                                 hover:lg:h-46 hover:lg:opacity-100 hover:lg:-translate-y-12 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-purple-500/50">
-                        <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-purple-400">Science Club</h4>
+                        <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-purple-400">{profile.deck.left.title}</h4>
                         <p class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
-                            Active member developing custom workflows.
+                            {profile.deck.left.desc}
                         </p>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">Active member developing custom workflows.</p>
+                        <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">{profile.deck.left.desc}</p>
                     </div>
 
-                    <!-- Middle Card (Centerpiece) -->
+                    <!-- Middle Card -->
                     <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
                                 lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-26 lg:z-20
                                 hover:lg:h-46 hover:lg:-translate-y-12 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60">
-                        <h4 class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400">University</h4>
+                        <h4 class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400">{profile.deck.center.title}</h4>
                         <p class="text-[11px] text-zinc-400 leading-normal mt-2 text-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
-                            Pursuing Computer Science & Engineering.
+                            {profile.deck.center.desc}
                         </p>
-                        <p class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden">Pursuing Computer Science & Engineering.</p>
+                        <p class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden">{profile.deck.center.desc}</p>
                     </div>
 
                     <!-- Right Card -->
                     <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
                                 lg:absolute lg:top-2 lg:right-[5%] lg:w-56 lg:h-26 lg:opacity-60 lg:rotate-6 lg:z-10
                                 hover:lg:h-46 hover:lg:opacity-100 hover:lg:-translate-y-12 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-purple-500/50">
-                        <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-purple-400">Competitions</h4>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
-                            Hackathon runner-up and builder.
+                        <h4 class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-purple-400">{profile.deck.right.title}</h4>
+                        <p class="text-[11px] text-zinc-500 leading-normal mt-2 text-right opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
+                            {profile.deck.right.desc}
                         </p>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">Hackathon runner-up and builder.</p>
+                        <p class="text-[11px] text-zinc-500 leading-normal mt-1 text-right lg:hidden">{profile.deck.right.desc}</p>
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <!-- 3. Mindset Card (Left Column - Vertically Stretched) -->
+        <!-- 3. Mindset Card -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-2 group hover:border-zinc-700/80 transition-all duration-300">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
-                    Mindset
+                    {profile.mindset.title}
                     <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-purple-500 rounded"></span>
                 </h2>
                 <p class="text-zinc-400 text-sm leading-relaxed mt-4">
-                    <strong class="text-zinc-200">Building more than software.</strong> My passions provide the <span class="text-zinc-200 font-semibold">discipline and focus</span> I need to grow.
+                    <strong class="text-zinc-200">{profile.mindset.highlight}</strong> {profile.mindset.body}
                 </p>
             </div>
             
-            <!-- Floating Inner Hobby Graphic Stack -->
+            <!-- Hobby Graphic Stack with Dynamic Image Mapping -->
             <div class="my-6 relative h-36 flex items-center justify-center overflow-hidden">
                 <div class="absolute w-24 h-28 bg-zinc-800/40 border border-zinc-700/20 rounded-xl -rotate-12 -translate-x-12 opacity-40"></div>
                 <div class="absolute w-24 h-28 bg-zinc-800/40 border border-zinc-700/20 rounded-xl rotate-12 translate-x-12 opacity-40"></div>
                 <div class="w-28 h-32 bg-zinc-950 border-2 border-purple-500/40 rounded-2xl relative overflow-hidden z-10 p-2 shadow-2xl flex flex-col justify-end">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <div class="absolute inset-0 bg-zinc-800 flex items-center justify-center text-xs text-zinc-600 font-mono">Image</div>
-                    <span class="text-[10px] font-mono uppercase font-bold text-center relative z-20 text-white tracking-wider">Calisthenics</span>
+                    <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-110" />
+                    <span class="text-[10px] font-mono uppercase font-bold text-center relative z-20 text-white tracking-wider">{profile.mindset.badgeLabel}</span>
                 </div>
             </div>
 
             <p class="text-sm text-zinc-400">
-                <span class="text-zinc-200 font-medium">Mastering body and mind</span> is my path to <strong class="text-white">excellence</strong>.
+                {profile.mindset.footer}
             </p>
         </div>
 
-        <!-- 4 & 6 Combined: Main Avatar + Location Frame (Center Block) -->
+        <!-- 4 & 5 Combined: Main Avatar + Location Frame -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-2 flex flex-col justify-between group hover:border-zinc-700/80 transition-all duration-300 min-h-[400px] lg:min-h-0">
-            <!-- Top half: Avatar Image Container -->
-            <div class="w-full h-full min-h-[220px] bg-zinc-800 flex items-center justify-center text-zinc-600 font-mono relative">
-                Avatar Image
+            <!-- Dynamic Avatar Image Block -->
+            <div class="w-full h-full min-h-[220px] bg-zinc-800 relative overflow-hidden flex items-center justify-center">
+                <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
 
-            <!-- Bottom half: Integrated Location Panel inside the same container -->
+            <!-- Integrated Location Panel -->
             <div class="bg-zinc-950/40 border-t border-zinc-800/80 p-6 overflow-hidden relative flex flex-col justify-end">
-                <!-- Map Grid Backdrop -->
                 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 
                 <div class="relative z-10">
                     <h3 class="text-xl font-black text-zinc-200 tracking-tight uppercase">
-                        Toronto, Canada
+                        {profile.avatar.location}
                     </h3>
                     <div class="flex justify-between items-center text-[10px] font-mono text-zinc-500 tracking-widest mt-1">
-                        <span>43.6532° N, 79.3832° W</span>
-                        <span class="text-purple-400/80 font-bold">- EST</span>
+                        <span>{profile.avatar.coordinates}</span>
+                        <span class="text-purple-400/80 font-bold">- {profile.avatar.timezone}</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 5. Craft Card (Right Column - Vertically Stretched) -->
+        <!-- 6. Craft Card -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-2 group hover:border-zinc-700/80 transition-all duration-300">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
-                    Craft
+                    {profile.craft.title}
                     <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-purple-500 rounded"></span>
                 </h2>
                 <p class="text-zinc-400 text-sm leading-relaxed mt-4">
-                    Building scalable <strong class="text-zinc-200">apps, websites, and automations</strong>.
+                    {profile.craft.highlight}
                 </p>
                 <p class="text-zinc-500 text-xs leading-relaxed mt-3">
-                    I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.
+                    {profile.craft.advice}
                 </p>
             </div>
 
-            <!-- Mini Inline Tech Stack Badges -->
+            <!-- Loopable Tech Stack Badges -->
             <div class="flex flex-wrap gap-2 py-4 my-2 border-y border-zinc-800/60 text-[10px] text-zinc-400 font-mono uppercase font-semibold">
-                <span class="flex items-center gap-1 bg-zinc-950 px-2 py-1 rounded-md border border-zinc-800">TS</span>
-                <span class="flex items-center gap-1 bg-zinc-950 px-2 py-1 rounded-md border border-zinc-800">React</span>
-                <span class="flex items-center gap-1 bg-zinc-950 px-2 py-1 rounded-md border border-zinc-800">Python</span>
-                <span class="flex items-center gap-1 bg-zinc-950 px-2 py-1 rounded-md border border-zinc-800">Tailwind</span>
+                {profile.craft.techStack.map((tech) => (
+                    <span class="flex items-center gap-1 bg-zinc-950 px-2 py-1 rounded-md border border-zinc-800">{tech}</span>
+                ))}
             </div>
 
             <div>
                 <p class="text-xs text-zinc-400 leading-relaxed mb-4">
-                    Active Hackathon competitor & Science Club member. Feel free to invite me to collaborate.
+                    {profile.craft.footer}
                 </p>
                 <div class="flex items-center gap-2 text-xs font-medium text-emerald-400">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Open to collaboration & freelance
+                    {profile.craft.statusText}
                 </div>
             </div>
         </div>
-
     </div>
 </div>
