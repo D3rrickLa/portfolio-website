@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import MouseGlow from '../components/MouseGlow.astro';
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ import "../styles/global.css";
   </head>
   <body class="bg-brand-bg text-brand-text font-sans antialiased min-h-screen">
     <slot />
+    <MouseGlow />
 
     <script>
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

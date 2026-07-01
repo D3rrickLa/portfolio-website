@@ -27,7 +27,7 @@ const profile = {
     title: "Mindset",
     highlight: "Building more than software.",
     body: "My passions provide the discipline and focus I need to grow.",
-    imageSrc: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=400&auto=format&fit=crop", 
+    imageSrc: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=500&auto=format&fit=crop", 
     imageAlt: "Calisthenics training setup",
     badgeLabel: "Calisthenics",
     footer: "Mastering body and mind is my path to excellence."
@@ -35,7 +35,7 @@ const profile = {
 
   // Central Profile / Location Card
   avatar: {
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop", 
+    src: "https://avatars.githubusercontent.com/u/97642394?v=4", 
     alt: "Derrick La Portrait",
     location: "Toronto, Canada",
     coordinates: "43.6532° N, 79.3832° W",
@@ -77,10 +77,9 @@ const profile = {
         <!-- 2. Interactive Spaced Reveal Deck -->
         <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-2 flex flex-col justify-end group/container hover:border-purple-500/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.8)]">            
             
-            <!-- This badge now vanishes cleanly when you hover anywhere inside this Bento card -->
-            <span class="absolute top-3 right-5 text-[9px] font-bold text-fuchsia-400/80 font-mono tracking-widest uppercase pointer-events-none transition-opacity duration-300 group-hover/container:opacity-0 z-40">
-                Hover to read more
-            </span>
+        <span class="hidden lg:inline-block lg:absolute top-3 right-5 text-[9px] font-bold text-fuchsia-400/80 font-mono tracking-widest uppercase pointer-events-none transition-opacity duration-300 group-hover/container:opacity-0 z-40">
+            Hover to read more
+        </span>
             
             <div class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28">
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none">                    
@@ -134,16 +133,12 @@ const profile = {
                 </p>
             </div>
             
-            <!-- Hobby Graphic Layer with Smooth Fade to Black Gradient Layer -->
-            <div class="my-6 relative h-36 flex items-center justify-center overflow-hidden">
-                <div class="absolute w-24 h-28 bg-zinc-800/20 border border-zinc-700/10 rounded-xl -rotate-12 -translate-x-12 opacity-30"></div>
-                <div class="absolute w-24 h-28 bg-zinc-800/20 border border-zinc-700/10 rounded-xl rotate-12 translate-x-12 opacity-30"></div>
-                <div class="w-28 h-32 bg-zinc-950 border-2 border-purple-500/30 rounded-2xl relative overflow-hidden z-10 p-2 shadow-2xl flex flex-col justify-end group/image">
-                    <!-- Smooth fade to black container layers -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent z-10"></div>
-                    <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-40 transition-all duration-500 group-hover:scale-110 group-hover:opacity-60" />
-                    <span class="text-[10px] font-mono uppercase font-bold text-center relative z-20 text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{profile.mindset.badgeLabel}</span>
-                </div>
+            <!-- Fixed: Made full-width inline with text bounds -->
+            <div class="my-6 relative h-40 w-full bg-zinc-950 border-2 border-purple-500/20 rounded-2xl overflow-hidden z-10 p-4 shadow-2xl flex flex-col justify-end group/image">
+                <!-- Smooth fade to black container layers -->
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10"></div>
+                <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-30 transition-all duration-500 group-hover:scale-105 group-hover:opacity-50" />
+                <span class="text-xs font-mono uppercase font-bold relative z-20 text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{profile.mindset.badgeLabel}</span>
             </div>
 
             <p class="text-sm text-zinc-400">
@@ -152,16 +147,17 @@ const profile = {
         </div>
 
         <!-- 4 & 5 Combined: Main Avatar + Location Frame -->
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 min-h-[400px] lg:min-h-0 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-            <!-- Dynamic Avatar with Fade Mask overlay -->
-            <div class="w-full h-full min-h-[220px] bg-zinc-950 relative overflow-hidden flex items-center justify-center">
-                <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" />
+        <!-- Fixed layout structure: set flex-col with h-full layout distribution to prevent hover layout jittering -->
+        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 h-[450px] lg:h-auto shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+            <!-- Dynamic Avatar Container with absolute anchor handling to protect shifting boundaries -->
+            <div class="w-full flex-1 bg-zinc-950 relative overflow-hidden">
+                <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform" />
                 <!-- Smooth vertical black fade out across bottom block -->
-                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90 z-10"></div>
             </div>
 
             <!-- Integrated Location Panel -->
-            <div class="bg-zinc-950/80 p-6 overflow-hidden relative flex flex-col justify-end">
+            <div class="bg-zinc-950/80 p-6 overflow-hidden relative flex flex-col justify-end border-t border-zinc-800/30">
                 <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 
                 <div class="relative z-10">
