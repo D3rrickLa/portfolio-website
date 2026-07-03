@@ -4,33 +4,33 @@ const profile = {
     first: "Derrick",
     last: "La"
   },
-  role: "Fullstack Developer",
+  role: "Security-Minded Developer",
   
   // Top Spaced Reveal Deck
   deck: {
     left: {
-      title: "Science Club",
-      desc: "Active member developing custom workflows."
+        title: "Cybersecurity",
+        desc: "Former Security Analyst experienced in threat detection, endpoint monitoring, and hunting down unauthorized activity across enterprise assets."
     },
     center: {
-      title: "University",
-      desc: "Pursuing Computer Science & Engineering."
+        title: "University",
+        desc: "Pursuing Computer Science & Engineering."
     },
     right: {
-      title: "Competitions",
-      desc: "Hackathon runner-up and builder."
+        title: "Machine Learning",
+        desc: "Researched & developed ML models targeting predictive tech in the healthcare startup space."
     }
   },
 
   // Mindset Card
   mindset: {
     title: "Mindset",
-    highlight: "Building more than software.",
-    body: "My passions provide the discipline and focus I need to grow.",
-    imageSrc: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=500&auto=format&fit=crop", 
-    imageAlt: "Calisthenics training setup",
-    badgeLabel: "Calisthenics",
-    footer: "Mastering body and mind is my path to excellence."
+    highlight: "Automating the friction out of everyday life.",
+    body: "From local script triggers optimizing my daily schedule, to custom macros smoothing out my creative workflows.",
+    imageSrc: "https://images.unsplash.com/photo-1509310202330-aec5af561c6b?q=80&w=3009&auto=format&fit=crop", 
+    imageAlt: "Music production studio setup",
+    badgeLabel: "Audio & Workflow Automation",
+    footer: "If I have to do it twice, I write a script for it."
   },
 
   // Central Profile / Location Card
@@ -45,25 +45,21 @@ const profile = {
   // Craft Card
   craft: {
     title: "Craft",
-    highlight: "Building scalable apps, websites, and automations.",
-    advice: "I understand what advantages modern tech can provide, helping me advise on the solutions a business actually needs.",
-    // Duplicated items inside the markup to provide a seamless infinite carousel track loop
-    techStack: ["TS", "React", "Python", "Tailwind", "Astro", "Node", "C++", "OpenCV", "Java", "Spring Boot"],
-    footer: "Active Hackathon competitor & Science Club member. Feel free to invite me to collaborate.",
-    statusText: "Open to collaboration & freelance"
+    highlight: "Bridging the gap between software development, QA, and defensive security.",
+    advice: "Having broken, tested, and guarded systems across broadcasting and healthcare spaces, I build with production-grade stability in mind.",
+    // Updated tech stack to reflect ML, Automation, and Security focus
+    techStack: ["Python", "TS", "React", "Node", "Bash", "Linux", "Docker", "C++", "TensorFlow", "Git", "Spring Boot", "Java"],
+    footer: "Experienced in QA, ML R&D, and Cyber Security. Let's build something secure.",
+    statusText: "Open to opportunities & collaboration"
   }
 };
 ---
 
-<!-- Bento Grid Container -->
 <div class="max-w-6xl mx-auto px-6 py-12 text-white font-sans selection:bg-fuchsia-500/30">
-    <!-- Adjusted auto-rows down from minmax(140px) to minmax(110px) to shrink the top-row heights nicely -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[minmax(110px,_auto)]">
         
-        <!-- 1. Name Card -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-1 flex flex-col justify-center items-center text-center group hover:border-fuchsia-500/50 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
             <h1 class="text-2xl font-extrabold tracking-wider uppercase drop-shadow-md">
-                <!-- Animated Lava Lamp First Name -->
                 <span class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-cyan-400 via-fuchsia-500 to-fuchsia-400 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava">
                     {profile.name.first}
                 </span> 
@@ -74,7 +70,6 @@ const profile = {
             </p>
         </div>
 
-        <!-- 2. Interactive Spaced Reveal Deck -->
         <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-2 flex flex-col justify-end group/container hover:border-purple-500/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.8)]">            
             
         <span class="hidden lg:inline-block lg:absolute top-3 right-5 text-[9px] font-bold text-fuchsia-400/80 font-mono tracking-widest uppercase pointer-events-none transition-opacity duration-300 group-hover/container:opacity-0 z-40">
@@ -84,7 +79,6 @@ const profile = {
             <div class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28">
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none">                    
                     
-                    <!-- Left Card -->
                     <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
                                 lg:absolute lg:top-1 lg:left-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:-rotate-6 lg:z-10
                                 hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-amber-500/50">
@@ -95,7 +89,6 @@ const profile = {
                         <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">{profile.deck.left.desc}</p>
                     </div>
 
-                    <!-- Middle Card -->
                     <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
                                 lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-24 lg:z-20
                                 hover:lg:h-40 hover:lg:-translate-y-10 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60">
@@ -106,7 +99,6 @@ const profile = {
                         <p class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden">{profile.deck.center.desc}</p>
                     </div>
 
-                    <!-- Right Card -->
                     <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
                                 lg:absolute lg:top-1 lg:right-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:rotate-6 lg:z-10
                                 hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-cyan-500/50">
@@ -121,7 +113,6 @@ const profile = {
             </div>
         </div>
 
-        <!-- 3. Mindset Card -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-fuchsia-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
@@ -133,9 +124,7 @@ const profile = {
                 </p>
             </div>
             
-            <!-- Fixed: Made full-width inline with text bounds -->
             <div class="my-6 relative h-40 w-full bg-zinc-950 border-2 border-purple-500/20 rounded-2xl overflow-hidden z-10 p-4 shadow-2xl flex flex-col justify-end group/image">
-                <!-- Smooth fade to black container layers -->
                 <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10"></div>
                 <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-30 transition-all duration-500 group-hover:scale-105 group-hover:opacity-50" />
                 <span class="text-xs font-mono uppercase font-bold relative z-20 text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{profile.mindset.badgeLabel}</span>
@@ -146,17 +135,12 @@ const profile = {
             </p>
         </div>
 
-        <!-- 4 & 5 Combined: Main Avatar + Location Frame -->
-        <!-- Fixed layout structure: set flex-col with h-full layout distribution to prevent hover layout jittering -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 h-[450px] lg:h-auto shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-            <!-- Dynamic Avatar Container with absolute anchor handling to protect shifting boundaries -->
             <div class="w-full flex-1 bg-zinc-950 relative overflow-hidden">
                 <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform" />
-                <!-- Smooth vertical black fade out across bottom block -->
                 <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90 z-10"></div>
             </div>
 
-            <!-- Integrated Location Panel -->
             <div class="bg-zinc-950/80 p-6 overflow-hidden relative flex flex-col justify-end border-t border-zinc-800/30">
                 <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 
@@ -172,7 +156,6 @@ const profile = {
             </div>
         </div>
 
-        <!-- 6. Craft Card -->
         <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-cyan-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
             <div>
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
@@ -187,19 +170,15 @@ const profile = {
                 </p>
             </div>
 
-            <!-- Seamless Infinite Auto-Scrolling Tech Stack -->
             <div class="relative w-full overflow-hidden my-4 py-3 border-y border-zinc-800/60 flex gap-4">
-                <!-- Fade Edges -->
                 <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none"></div>
                 <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none"></div>
                 
-                <!-- The actual loop setup (Using flex-none min-w-full removes structural layout calculation flaws) -->
                 <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-zinc-400 font-mono uppercase font-semibold">
                     {profile.craft.techStack.map((tech) => (
                         <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 text-cyan-300/90 shadow-sm shadow-purple-500/5">{tech}</span>
                     ))}
                 </div>
-                <!-- Clean Duplicate Track -->
                 <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-zinc-400 font-mono uppercase font-semibold" aria-hidden="true">
                     {profile.craft.techStack.map((tech) => (
                         <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 text-cyan-300/90 shadow-sm shadow-purple-500/5">{tech}</span>
@@ -224,27 +203,19 @@ const profile = {
 <style>
     @keyframes marquee {
         0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100% - 1rem)); } /* -1rem accounts perfectly for the parent flex gap-4 offset */
+        100% { transform: translateX(calc(-100% - 1rem)); }
     }
     .animate-marquee {
         animation: marquee 25s linear infinite;
     }
 
     @keyframes lava-shift {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     .animate-lava {
-        /* Adjust the '8s' duration to make it faster or slower/lazier */
         animation: lava-shift 8s ease infinite;
     }
-
 </style>
