@@ -2,220 +2,562 @@
 const profile = {
   name: {
     first: "Derrick",
-    last: "La"
+    last: "La",
   },
   role: "Security-Minded Developer",
-  
-  // Top Spaced Reveal Deck
+
   deck: {
     left: {
-        title: "Cybersecurity",
-        desc: "Former Security Analyst experienced in threat detection, endpoint monitoring, and hunting down unauthorized activity across enterprise assets."
+      title: "Cybersecurity",
+      desc: "Former Security Analyst experienced in threat detection, endpoint monitoring, and hunting down unauthorized activity across enterprise assets.",
     },
     center: {
-        title: "University",
-        desc: "Pursuing Computer Science & Engineering."
+      title: "University",
+      desc: "Pursuing Computer Science & Engineering.",
     },
     right: {
-        title: "Machine Learning",
-        desc: "Researched & developed ML models targeting predictive tech in the healthcare startup space."
-    }
+      title: "Machine Learning",
+      desc: "Researched & developed ML models targeting predictive tech in the healthcare startup space.",
+    },
   },
 
-  // Mindset Card
   mindset: {
     title: "Mindset",
     highlight: "Automating the friction out of everyday life.",
     body: "From local script triggers optimizing my daily schedule, to custom macros smoothing out my creative workflows.",
-    imageSrc: "https://images.unsplash.com/photo-1509310202330-aec5af561c6b?q=80&w=3009&auto=format&fit=crop", 
-    imageAlt: "Music production studio setup",
-    badgeLabel: "Audio & Workflow Automation",
-    footer: "If I have to do it twice, I write a script for it."
+    // Array of images matching your narrative
+    images: [
+      {
+        src: "https://images.unsplash.com/photo-1509310202330-aec5af561c6b?q=80&w=3009&auto=format&fit=crop",
+        alt: "Music production studio setup",
+        badge: "Audio & Workflow Automation",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=3000&auto=format&fit=crop",
+        alt: "Clean terminal layout with custom automation scripts",
+        badge: "Scripting & Local Triggers",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=3000&auto=format&fit=crop",
+        alt: "Macro pad and keyboard setup",
+        badge: "Custom Macro Workflows",
+      },
+    ],
+    footer: "If I have to do it twice, I write a script for it.",
   },
 
-  // Central Profile / Location Card
   avatar: {
-    src: "https://avatars.githubusercontent.com/u/97642394?v=4", 
+    src: "https://avatars.githubusercontent.com/u/97642394?v=4",
     alt: "Derrick La Portrait",
     location: "Toronto, Canada",
     coordinates: "43.6532° N, 79.3832° W",
-    timezone: "EST"
+    timezone: "EST",
   },
 
-  // Craft Card
   craft: {
     title: "Craft",
-    highlight: "Bridging the gap between software development, QA, and defensive security.",
-    advice: "Having broken, tested, and guarded systems across broadcasting and healthcare spaces, I build with production-grade stability in mind.",
-    // Updated tech stack to reflect ML, Automation, and Security focus
-    techStack: ["Python", "TS", "React", "Node", "Bash", "Linux", "Docker", "C++", "TensorFlow", "Git", "Spring Boot", "Java"],
-    footer: "Experienced in QA, ML R&D, and Cyber Security. Let's build something secure.",
-    statusText: "Open to opportunities & collaboration"
-  }
+    highlight:
+      "Bridging the gap between software development, QA, and defensive security.",
+    advice:
+      "Having broken, tested, and guarded systems across broadcasting and healthcare spaces, I build with production-grade stability in mind.",
+    techStack: [
+      { name: "Python", slug: "python" },
+      { name: "TypeScript", slug: "typescript" },
+      { name: "React", slug: "react" },
+      { name: "Node.js", slug: "nodejs" },
+      { name: "Bash", slug: "bash" },
+      { name: "Linux", slug: "linux" },
+      { name: "Docker", slug: "docker" },
+      { name: "C++", slug: "cplusplus" },
+      { name: "TensorFlow", slug: "tensorflow" },
+      { name: "Git", slug: "git" },
+      { name: "Spring Boot", slug: "spring" },
+      { name: "Java", slug: "java" },
+    ],
+    footer:
+      "Experienced in QA, ML R&D, and Cyber Security. Let's build something secure.",
+    statusText: "Open to opportunities & collaboration",
+  },
 };
 ---
 
-<div class="max-w-6xl mx-auto px-6 py-12 text-white font-sans selection:bg-fuchsia-500/30">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[minmax(110px,_auto)]">
-        
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-1 flex flex-col justify-center items-center text-center group hover:border-fuchsia-500/50 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-            <h1 class="text-2xl font-extrabold tracking-wider uppercase drop-shadow-md">
-                <span class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-cyan-400 via-fuchsia-500 to-fuchsia-400 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava">
-                    {profile.name.first}
-                </span> 
-                <span class="text-zinc-400 font-medium">{profile.name.last}</span>
-            </h1>
-            <p class="text-[10px] text-zinc-500 font-mono tracking-widest uppercase mt-1">
-                {profile.role}
-            </p>
-        </div>
-
-        <div class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-2 flex flex-col justify-end group/container hover:border-purple-500/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.8)]">            
-            
-        <span class="hidden lg:inline-block lg:absolute top-3 right-5 text-[9px] font-bold text-fuchsia-400/80 font-mono tracking-widest uppercase pointer-events-none transition-opacity duration-300 group-hover/container:opacity-0 z-40">
-            Hover to read more
-        </span>
-            
-            <div class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28">
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none">                    
-                    
-                    <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
-                                lg:absolute lg:top-1 lg:left-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:-rotate-6 lg:z-10
-                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-amber-500/50">
-                        <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-amber-400">{profile.deck.left.title}</h4>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
-                            {profile.deck.left.desc}
-                        </p>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">{profile.deck.left.desc}</p>
-                    </div>
-
-                    <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
-                                lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-24 lg:z-20
-                                hover:lg:h-40 hover:lg:-translate-y-10 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60">
-                        <h4 class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400">{profile.deck.center.title}</h4>
-                        <p class="text-[11px] text-zinc-400 leading-normal mt-2 text-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
-                            {profile.deck.center.desc}
-                        </p>
-                        <p class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden">{profile.deck.center.desc}</p>
-                    </div>
-
-                    <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
-                                lg:absolute lg:top-1 lg:right-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:rotate-6 lg:z-10
-                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-cyan-500/50">
-                        <h4 class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-cyan-400">{profile.deck.right.title}</h4>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-2 text-right opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
-                            {profile.deck.right.desc}
-                        </p>
-                        <p class="text-[11px] text-zinc-500 leading-normal mt-1 text-right lg:hidden">{profile.deck.right.desc}</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-fuchsia-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-            <div>
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
-                    {profile.mindset.title}
-                    <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"></span>
-                </h2>
-                <p class="text-zinc-400 text-sm leading-relaxed mt-4">
-                    <strong class="text-zinc-200">{profile.mindset.highlight}</strong> {profile.mindset.body}
-                </p>
-            </div>
-            
-            <div class="my-6 relative h-40 w-full bg-zinc-950 border-2 border-purple-500/20 rounded-2xl overflow-hidden z-10 p-4 shadow-2xl flex flex-col justify-end group/image">
-                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10"></div>
-                <img src={profile.mindset.imageSrc} alt={profile.mindset.imageAlt} class="absolute inset-0 w-full h-full object-cover opacity-30 transition-all duration-500 group-hover:scale-105 group-hover:opacity-50" />
-                <span class="text-xs font-mono uppercase font-bold relative z-20 text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{profile.mindset.badgeLabel}</span>
-            </div>
-
-            <p class="text-sm text-zinc-400">
-                {profile.mindset.footer}
-            </p>
-        </div>
-
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 h-[450px] lg:h-auto shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-            <div class="w-full flex-1 bg-zinc-950 relative overflow-hidden">
-                <img src={profile.avatar.src} alt={profile.avatar.alt} class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform" />
-                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90 z-10"></div>
-            </div>
-
-            <div class="bg-zinc-950/80 p-6 overflow-hidden relative flex flex-col justify-end border-t border-zinc-800/30">
-                <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                
-                <div class="relative z-10">
-                    <h3 class="text-xl font-black bg-gradient-to-r from-zinc-100 to-zinc-400 bg-clip-text text-transparent tracking-tight uppercase">
-                        {profile.avatar.location}
-                    </h3>
-                    <div class="flex justify-between items-center text-[10px] font-mono text-zinc-500 tracking-widest mt-1">
-                        <span>{profile.avatar.coordinates}</span>
-                        <span class="text-cyan-400 font-bold">- {profile.avatar.timezone}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-cyan-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-            <div>
-                <h2 class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block">
-                    {profile.craft.title}
-                    <span class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-cyan-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"></span>
-                </h2>
-                <p class="text-zinc-400 text-sm leading-relaxed mt-4">
-                    {profile.craft.highlight}
-                </p>
-                <p class="text-zinc-500 text-xs leading-relaxed mt-3">
-                    {profile.craft.advice}
-                </p>
-            </div>
-
-            <div class="relative w-full overflow-hidden my-4 py-3 border-y border-zinc-800/60 flex gap-4">
-                <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none"></div>
-                <div class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none"></div>
-                
-                <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-zinc-400 font-mono uppercase font-semibold">
-                    {profile.craft.techStack.map((tech) => (
-                        <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 text-cyan-300/90 shadow-sm shadow-purple-500/5">{tech}</span>
-                    ))}
-                </div>
-                <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-zinc-400 font-mono uppercase font-semibold" aria-hidden="true">
-                    {profile.craft.techStack.map((tech) => (
-                        <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 text-cyan-300/90 shadow-sm shadow-purple-500/5">{tech}</span>
-                    ))}
-                </div>
-            </div>
-
-            <div>
-                <p class="text-xs text-zinc-400 leading-relaxed mb-4">
-                    {profile.craft.footer}
-                </p>
-                <div class="flex items-center gap-2 text-xs font-medium text-emerald-400">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#56D677] animate-pulse"></span>
-                    {profile.craft.statusText}
-                </div>
-            </div>
-        </div>
-
+<div
+  class="max-w-6xl mx-auto px-6 py-12 text-white font-sans selection:bg-fuchsia-500/30"
+>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[minmax(110px,_auto)]"
+  >
+    <!-- Name and Title Block -->
+    <div
+      class="bg-gradient-to-b from-zinc-900 to-zinc-950/40 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-1 flex flex-col justify-center items-center text-center group hover:border-fuchsia-500/50 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+    >
+      <h1
+        class="text-3xl font-extrabold tracking-wider uppercase filter drop-shadow-[0_0_20px_rgba(197,224,227,0.35)]"
+      >
+        <span class="text-white drop-shadow-[0_0_8px_rgba(211,236,240,0.4)]">{profile.name.first}</span>
+        <span class="text-zinc-400 font-medium drop-shadow-[0_0_8px_rgba(211,236,240,0.4)]">{profile.name.last}</span>
+      </h1>
+      <p
+        class="text-[12px] text-zinc-500 font-mono tracking-widest uppercase mt-1"
+      >
+        {profile.role}
+      </p>
     </div>
+
+    <!-- Three Cards Block -->
+    <div
+      class="relative bg-zinc-900 border border-zinc-800/80 rounded-3xl p-5 lg:col-span-2 flex flex-col justify-end group/container hover:border-purple-500/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+    >
+      <span
+        class="hidden lg:inline-block lg:absolute top-3 right-5 text-[9px] font-bold text-fuchsia-400/80 font-mono tracking-widest uppercase pointer-events-none transition-opacity duration-300 group-hover/container:opacity-0 z-40"
+      >
+        Hover to read more
+      </span>
+
+      <div
+        class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28"
+      >
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none"
+        >
+          <div
+            class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
+                                lg:absolute lg:top-1 lg:left-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:-rotate-6 lg:z-10
+                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-amber-500/50"
+          >
+            <h4
+              class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-amber-400"
+            >
+              {profile.deck.left.title}
+            </h4>
+            <p
+              class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block"
+            >
+              {profile.deck.left.desc}
+            </p>
+            <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">
+              {profile.deck.left.desc}
+            </p>
+          </div>
+
+          <div
+            class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
+                                lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-24 lg:z-20
+                                hover:lg:h-40 hover:lg:-translate-y-10 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60"
+          >
+            <h4
+              class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400"
+            >
+              {profile.deck.center.title}
+            </h4>
+            <p
+              class="text-[11px] text-zinc-400 leading-normal mt-2 text-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block"
+            >
+              {profile.deck.center.desc}
+            </p>
+            <p
+              class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden"
+            >
+              {profile.deck.center.desc}
+            </p>
+          </div>
+
+          <div
+            class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
+                                lg:absolute lg:top-1 lg:right-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:rotate-6 lg:z-10
+                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-10 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-cyan-500/50"
+          >
+            <h4
+              class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-cyan-400"
+            >
+              {profile.deck.right.title}
+            </h4>
+            <p
+              class="text-[11px] text-zinc-500 leading-normal mt-2 text-right opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block"
+            >
+              {profile.deck.right.desc}
+            </p>
+            <p
+              class="text-[11px] text-zinc-500 leading-normal mt-1 text-right lg:hidden"
+            >
+              {profile.deck.right.desc}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-fuchsia-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+    >
+      <div>
+        <h2
+          class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block"
+        >
+          {profile.mindset.title}
+          <span
+            class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"
+          ></span>
+        </h2>
+        <p class="text-zinc-400 text-sm leading-relaxed mt-4">
+          <strong class="text-zinc-200">{profile.mindset.highlight}</strong>
+          {profile.mindset.body}
+        </p>
+      </div>
+
+   <!-- Interactive 3D Spread Deck Wrapper -->
+    <div
+      class="mindset-carousel my-6 relative h-56 w-full z-10 group/carousel"
+      style="perspective: 1200px;"
+    >
+      <!-- Stacked Spread Container -->
+      <div class="deck-container w-full h-full relative flex items-center justify-center">
+        {
+          profile.mindset.images.map((img, index) => (
+            <div
+              class="deck-card absolute w-[70%] h-[85%] rounded-xl overflow-hidden shadow-2xl border border-zinc-800/80"
+              data-index={index}
+            >
+              <!-- Subtle Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10 select-none pointer-events-none" />
+              
+              <!-- Slide Image -->
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 card-img"
+                style="opacity: 0.75;"
+              />
+              
+              <!-- Badge Content -->
+              <div class="carousel-content absolute bottom-4 left-4 z-20 transition-opacity duration-300">
+                <span class="text-xs font-mono uppercase font-bold text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                  {img.badge}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Tiny Navigation Dots -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 flex gap-1.5">
+        {
+          profile.mindset.images.map((_, index) => (
+            <button
+              class="carousel-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-zinc-600"
+              aria-label={`Go to card ${index + 1}`}
+              data-index={index}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <p class="text-sm text-zinc-400">
+      {profile.mindset.footer}
+    </p>
+  </div>
+
+    <!-- Avatar Block -->
+    <div
+      class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 h-[450px] lg:h-auto shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+    >
+      <div class="w-full flex-1 bg-zinc-950 relative overflow-hidden">
+        <img
+          src={profile.avatar.src}
+          alt={profile.avatar.alt}
+          class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90 z-10"
+        >
+        </div>
+      </div>
+
+      <div
+        class="bg-zinc-950/80 p-6 overflow-hidden relative flex flex-col justify-end border-t border-zinc-800/30"
+      >
+        <div
+          class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"
+        >
+        </div>
+
+        <div class="relative z-10">
+          <h3
+            class="text-xl font-black bg-gradient-to-r from-zinc-100 to-zinc-400 bg-clip-text text-transparent tracking-tight uppercase"
+          >
+            {profile.avatar.location}
+          </h3>
+          <div
+            class="flex justify-between items-center text-[10px] font-mono text-zinc-500 tracking-widest mt-1"
+          >
+            <span>{profile.avatar.coordinates}</span>
+            <span class="text-cyan-400 font-bold"
+              >- {profile.avatar.timezone}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Craft Block -->
+    <div
+      class="bg-zinc-900 border border-zinc-800/80 rounded-3xl p-8 flex flex-col justify-between lg:row-span-3 group hover:border-cyan-500/40 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]"
+    >
+      <div>
+        <h2
+          class="text-3xl font-bold tracking-tight text-white mb-2 relative inline-block"
+        >
+          {profile.craft.title}
+          <span
+            class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-cyan-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"
+          ></span>
+        </h2>
+        <p class="text-zinc-400 text-sm leading-relaxed mt-4">
+          {profile.craft.highlight}
+        </p>
+        <p class="text-zinc-500 text-xs leading-relaxed mt-3">
+          {profile.craft.advice}
+        </p>
+      </div>
+
+      <div
+        class="relative w-full overflow-hidden my-4 py-3 border-y border-zinc-800/60 flex gap-4"
+      >
+        <div
+          class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-zinc-900 to-transparent z-10 pointer-events-none"
+        >
+        </div>
+        <div
+          class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-zinc-900 to-transparent z-10 pointer-events-none"
+        >
+        </div>
+
+        <div
+          class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-white font-mono uppercase font-semibold"
+        >
+          {
+            profile.craft.techStack.map((tech) => (
+              <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5">
+                <img
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.slug}/${tech.slug}-original.svg`}
+                  alt={`${tech.name} logo`}
+                  class="w-4 h-4 object-contain tracking-normal"
+                  loading="lazy"
+                />
+                {tech.name}
+              </span>
+            ))
+          }
+        </div>
+        <div
+          class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-white font-mono uppercase font-semibold"
+          aria-hidden="true"
+        >
+          {
+            profile.craft.techStack.map((tech) => (
+              <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5">
+                <img
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.slug}/${tech.slug}-original.svg`}
+                  alt={`${tech.name} logo`}
+                  class="w-4 h-4 object-contain tracking-normal"
+                  loading="lazy"
+                />
+                {tech.name}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <p class="text-xs text-zinc-400 leading-relaxed mb-4">
+          {profile.craft.footer}
+        </p>
+        <div
+          class="flex items-center gap-2 text-xs font-medium text-emerald-400"
+        >
+          <span
+            class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#56D677] animate-pulse"
+          ></span>
+          {profile.craft.statusText}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100% - 1rem)); }
-    }
-    .animate-marquee {
-        animation: marquee 25s linear infinite;
-    }
+  /* Base transitions across layouts */
+  .deck-card {
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.65s ease,
+                filter 0.65s ease,
+                box-shadow 0.65s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
 
-    @keyframes lava-shift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+  /* Core Active Frame (Top Deck) */
+  .deck-card.layer-center {
+    transform: translate3d(0, 0, 10px) scale(1) rotateY(0deg);
+    opacity: 1;
+    z-index: 30;
+    filter: brightness(1.05);
+    box-shadow: 0 0 30px -5px rgba(217, 70, 239, 0.35), 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+    pointer-events: auto;
+  }
+  .deck-card.layer-center:hover .card-img {
+    transform: scale(1.03);
+  }
 
-    .animate-lava {
-        animation: lava-shift 8s ease infinite;
-    }
+  /* Left Peeking Card Layer */
+  .deck-card.layer-left {
+    transform: translate3d(-35%, 0, -60px) scale(0.9) rotateY(22deg);
+    opacity: 0.45;
+    z-index: 20;
+    filter: brightness(0.4) blur(0.5px);
+    pointer-events: auto;
+  }
+  .deck-card.layer-left .carousel-content {
+    opacity: 0;
+  }
+
+  /* Right Peeking Card Layer */
+  .deck-card.layer-right {
+    transform: translate3d(35%, 0, -60px) scale(0.9) rotateY(-22deg);
+    opacity: 0.45;
+    z-index: 20;
+    filter: brightness(0.4) blur(0.5px);
+    pointer-events: auto;
+  }
+  .deck-card.layer-right .carousel-content {
+    opacity: 0;
+  }
+
+  /* Hidden Fallback Stack Cards */
+  .deck-card.layer-hidden {
+    transform: translate3d(0, 0, -140px) scale(0.75);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Layout Marquee Styles */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% - 1rem)); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
 </style>
+
+<script>
+  function initMindsetSpreadDeck() {
+    const carousels = document.querySelectorAll(".mindset-carousel");
+
+    carousels.forEach((carousel) => {
+      const cards = Array.from(carousel.querySelectorAll(".deck-card")) as HTMLElement[];
+      const dots = carousel.querySelectorAll(".carousel-dot");
+
+      if (cards.length === 0) return;
+
+      let currentIdx = 0;
+      const totalCards = cards.length;
+      let autoplayTimer: number | null = null;
+
+      function render() {
+        const prevIdx = (currentIdx - 1 + totalCards) % totalCards;
+        const nextIdx = (currentIdx + 1) % totalCards;
+
+        cards.forEach((card, idx) => {
+          card.classList.remove("layer-center", "layer-left", "layer-right", "layer-hidden");
+
+          if (idx === currentIdx) {
+            card.classList.add("layer-center");
+          } else if (idx === prevIdx) {
+            card.classList.add("layer-left");
+          } else if (idx === nextIdx) {
+            card.classList.add("layer-right");
+          } else {
+            card.classList.add("layer-hidden");
+          }
+        });
+
+        // Sync indicators
+        dots.forEach((dot, idx) => {
+          if (idx === currentIdx) {
+            dot.className = "carousel-dot h-1.5 rounded-full transition-all duration-300 bg-fuchsia-500 w-3.5";
+          } else {
+            dot.className = "carousel-dot w-1.5 h-1.5 rounded-full transition-all duration-300 bg-zinc-600";
+          }
+        });
+      }
+
+      function navigate(direction: number) {
+        currentIdx = (currentIdx + direction + totalCards) % totalCards;
+        render();
+      }
+
+      // Explicit Card Interactions (Clicking Peeking Sides)
+      cards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          if (card.classList.contains("layer-left")) {
+            navigate(-1);
+          } else if (card.classList.contains("layer-right") || card.classList.contains("layer-center")) {
+            navigate(1);
+          }
+        });
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentIdx = idx;
+          render();
+        });
+      });
+
+      // Autoplay cycle handling
+      function startAutoplay() {
+        if (!autoplayTimer) {
+          autoplayTimer = window.setInterval(() => navigate(1), 5500);
+        }
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      carousel.addEventListener("mouseenter", stopAutoplay);
+      carousel.addEventListener("mouseleave", startAutoplay);
+
+      // Mobile Swipe Handling
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      carousel.addEventListener("touchstart", (e: any) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      carousel.addEventListener("touchend", (e: any) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const delta = touchStartX - touchEndX;
+        if (Math.abs(delta) > 40) {
+          navigate(delta > 0 ? 1 : -1);
+        }
+      }, { passive: true });
+
+      render();
+      startAutoplay();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initMindsetSpreadDeck);
+  document.addEventListener("astro:after-swap", initMindsetSpreadDeck);
+</script>

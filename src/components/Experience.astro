@@ -1,122 +1,120 @@
 ---
 interface ExperienceProps {
-    title: string;
-    company: string;
-    location: string;
-    startDate: string;
-    endDate: string;
-    description: string;
-    techStack: string[];
+  title: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  techStack: string[];
 }
 
 const experienceItems: ExperienceProps[] = [
-    {
-        title: "Job Title 1",
-        company: "Company 1",
-        location: "Toronto, ON",
-        startDate: "Jan 2026",
-        endDate: "April 2026",
-        description: "Test 1",
-        techStack: ["JAX", "TPU", "Transformers", "Python"],
-    },
-    {
-        title: "Job Title 1",
-        company: "Company 1",
-        location: "Toronto, ON",
-        startDate: "Jan 2026",
-        endDate: "April 2026",
-        description: "Test 1",
-        techStack: ["JAX", "TPU", "Transformers", "Python"],
-    },
-    {
-        title: "Job Title 2",
-        company: "Company 2",
-        location: "Mississauga, ON",
-        startDate: "Jan 2025",
-        endDate: "Dec 2025",
-        description: "Test 2",
-        techStack: ["Python", "Kubernetes", "CUDA", "Redis"],
-    },
-    {
-        title: "Job Title 3",
-        company: "Company 3",
-        location: "New York, NY",
-        startDate: "Jan 2020",
-        endDate: "April 2023",
-        description: "Test 3",
-        techStack: ["React", "Python", "FastAPI", "PostgreSQL"],
-    },
+  {
+    title: "Job Title 1",
+    company: "Company 1",
+    location: "Toronto, ON",
+    startDate: "Jan 2026",
+    endDate: "April 2026",
+    description: "Test 1",
+    techStack: ["JAX", "TPU", "Transformers", "Python"],
+  },
+  {
+    title: "Job Title 1",
+    company: "Company 1",
+    location: "Toronto, ON",
+    startDate: "Jan 2026",
+    endDate: "April 2026",
+    description: "Test 1",
+    techStack: ["JAX", "TPU", "Transformers", "Python"],
+  },
+  {
+    title: "Job Title 2",
+    company: "Company 2",
+    location: "Mississauga, ON",
+    startDate: "Jan 2025",
+    endDate: "Dec 2025",
+    description: "Test 2",
+    techStack: ["Python", "Kubernetes", "CUDA", "Redis"],
+  },
+  {
+    title: "Job Title 3",
+    company: "Company 3",
+    location: "New York, NY",
+    startDate: "Jan 2020",
+    endDate: "April 2023",
+    description: "Test 3",
+    techStack: ["React", "Python", "FastAPI", "PostgreSQL"],
+  },
 ];
 ---
 
 <div class="relative w-full left-0">
-    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-cyan-500 via-indigo-500 to-zinc-800">
-    </div>
+  <div
+    class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-cyan-500 via-indigo-500 to-zinc-800"
+  >
+  </div>
 
-    <div class="flex flex-col gap-12 md:gap-4">
-        {
-            experienceItems.map((item, index) => (
-                /* Alternating rows via flex-row-reverse on even index items */
-                <div class={`flex flex-col md:flex-row items-start w-full relative pl-10 md:pl-0 ${
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}>
-                    <div class="hidden md:block w-1/2" />
+  <div class="flex flex-col gap-12 md:gap-4">
+    {
+      experienceItems.map((item, index) => (
+        /* Alternating rows via flex-row-reverse on even index items */
+        <div
+          class={`flex flex-col md:flex-row items-start w-full relative pl-10 md:pl-0 ${
+            index % 2 === 0 ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          <div class="hidden md:block w-1/2" />
 
-                    <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-950 border-4 border-purple-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10" />
+          <div class="absolute left-4 md:left-1/2 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-950 border-4 border-purple-400 shadow-[0_0_10px_rgba(34,211,238,0.5)] z-10" />
 
-                    <div class="w-full md:w-1/2 md:px-8">
-                        <div class="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-6 shadow-xl backdrop-blur-sm hover:border-zinc-800 transition-colors duration-300">
-                            {/* Date range row with briefcase icon */}
-                            <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-2">
-                                <div class="flex items-center gap-1.5">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        class="lucide lucide-briefcase"
-                                    >
-                                        <path d="M15 2H9a2 2 0 0 0-2 2v2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4V4a2 2 0 0 0-2-2z" />
-                                        <path d="M7 6h10" />
-                                        <path d="M3 11h18" />
-                                    </svg>
-                                    <span>
-                                        {item.startDate} — {item.endDate}
-                                    </span>
-                                </div>
-                                <span class="text-zinc-500 font-medium">
-                                    {item.location}
-                                </span>
-                            </div>
-
-                            <h3 class="text-xl font-bold text-zinc-100">
-                                {item.company}
-                            </h3>
-                            <p class="text-xs text-zinc-500 mt-0.5 mb-4">
-                                {item.title}
-                            </p>
-
-                            <p class="text-sm text-zinc-400 leading-relaxed mb-6">
-                                {item.description}
-                            </p>
-
-                            {/* Tech Tags */}
-                            <div class="flex flex-wrap gap-1.5">
-                                {item.techStack.map((tech) => (
-                                    <span class="bg-zinc-950 border border-zinc-800 text-[11px] font-medium text-zinc-400 px-2.5 py-0.5 rounded-full tracking-wide">
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+          <div class="w-full md:w-1/2 md:px-8">
+            <div class="bg-zinc-900/40 border border-zinc-900 rounded-2xl p-6 shadow-xl backdrop-blur-sm hover:border-zinc-800 transition-colors duration-300">
+              {/* Date range row with briefcase icon */}
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs mb-2">
+                <div class="flex items-center gap-1.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-briefcase"
+                  >
+                    <path d="M15 2H9a2 2 0 0 0-2 2v2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4V4a2 2 0 0 0-2-2z" />
+                    <path d="M7 6h10" />
+                    <path d="M3 11h18" />
+                  </svg>
+                  <span>
+                    {item.startDate} — {item.endDate}
+                  </span>
                 </div>
-            ))
-        }
-    </div>
+                <span class="text-zinc-500 font-medium">{item.location}</span>
+              </div>
+
+              <h3 class="text-xl font-bold text-zinc-100">{item.company}</h3>
+              <p class="text-xs text-zinc-500 mt-0.5 mb-4">{item.title}</p>
+
+              <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                {item.description}
+              </p>
+
+              {/* Tech Tags */}
+              <div class="flex flex-wrap gap-1.5">
+                {item.techStack.map((tech) => (
+                  <span class="bg-zinc-950 border border-zinc-800 text-[11px] font-medium text-zinc-400 px-2.5 py-0.5 rounded-full tracking-wide">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </div>
