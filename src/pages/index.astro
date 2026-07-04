@@ -7,6 +7,13 @@ import ProjectsGrid from "../components/ProjectsGrid.astro";
 import AboutMe from "../components/AboutMe.astro";
 ---
 
+<!-- 
+Layout:
+  Hero Section: who I am, stack, and killer hook
+  Experience / Achievements: Where I worked / significant tech milestone
+  Feature Projects: 2 - 3 projects I am proud of, with architecture details, GH link, and live demo (if app.)
+  Footer
+-->
 <Layout>
   <Navbar />
 
@@ -26,10 +33,10 @@ import AboutMe from "../components/AboutMe.astro";
       Welcome to my portfolio. Have a look around and feel free to contact me.
     </p>
     <a
-      href="#projects"
+      href="#experience"
       class="inline-block bg-brand-primary hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-indigo-500/20 transition-all duration-200"
     >
-      View My Work
+      View My Experience
     </a>
   </main>
 
@@ -38,19 +45,6 @@ import AboutMe from "../components/AboutMe.astro";
     class="max-w-6xl mx-auto w-full px-6 py-24 min-h-[50vh] scroll-mt-16"
   >
     <AboutMe />
-  </section>
-
-  <section
-    id="projects"
-    class="max-w-6xl mx-auto w-full px-6 py-24 min-screen scroll-mt-16"
-  >
-    <h2 class="text-4xl font-bold mb-8 text-center md:text-right">
-      Featured <span
-        class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none"
-        >Projects</span
-      >
-    </h2>
-    <ProjectsGrid />
   </section>
 
   <section
@@ -71,6 +65,19 @@ import AboutMe from "../components/AboutMe.astro";
       </p>
     </div>
     <Experience />
+  </section>
+
+  <section
+    id="projects"
+    class="max-w-6xl mx-auto w-full px-6 py-24 min-screen scroll-mt-16"
+  >
+    <h2 class="text-4xl font-bold mb-8 text-center md:text-right">
+      Featured <span
+        class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none"
+        >Projects</span
+      >
+    </h2>
+    <ProjectsGrid />
   </section>
 
   <section

@@ -1,185 +1,207 @@
 ---
 const apiKey = import.meta.env.PUBLIC_STATIC_FORMS_KEY;
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+const navItems: NavLink[] = [
+  { label: "GitHub", href: "https://github.com/D3rrickla" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/derrick-la/" },
+  { label: "Resume (PDF)", href: "/resume.pdf" },
+];
 ---
 
-<footer>
-    <h1
-        class="text-center text-4xl font-extrabold tracking-tight mb-4 text-white"
-    >
-        Get In Touch With Me
-    </h1>
+<footer class="py-16 px-4">
+  <div class="max-w-5xl mx-auto w-full">
+    <div id="success-message" class="hidden text-center py-12">
+      <div
+        class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 mb-4"
+      >
+        <svg
+          class="w-8 h-8 text-green-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-white mb-2">Message Sent!</h2>
+      <p class="text-gray-400">
+        Thank you for reaching out. I'll get back to you as soon as possible.
+      </p>
+    </div>
 
-    <div class="relative max-w-5xl mx-auto w-full">
-        <div id="success-message" class="hidden text-center py-12">
-            <div
-                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 mb-4"
-            >
-                <svg
-                    class="w-8 h-8 text-green-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"></path>
-                </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-white mb-2">Message Sent!</h2>
-            <p class="text-gray-400">
-                Thank you for reaching out. I'll get back to you as soon as
-                possible.
-            </p>
+    <div
+      id="footer-grid"
+      class="grid grid-cols-1 md:grid-cols-5 gap-12 items-start"
+    >
+      <div class="md:col-span-2 space-y-6">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-white mb-3">
+            Get In Touch
+          </h2>
+          <p class="text-base text-gray-400 leading-relaxed">
+            Have an exciting opportunity, a project idea, or just want to talk?
+            Drop me a message here or connect with me across my professional networks.
+          </p>
         </div>
 
-        <form
-            id="contact-form"
-            action="https://api.staticforms.dev/submit"
-            method="POST"
-        >
-            <input type="hidden" name="apiKey" value={apiKey} />
-            <input
-                type="text"
-                name="_honey"
-                class="hidden"
-                style="display:none"
-            />
+        <hr class="border-white/10" />
 
-            <input
-                type="hidden"
-                name="subject"
-                value="Contact Form Submission"
-            />
-            <input
-                type="text"
-                name="_honey"
-                class="hidden"
-                style="display:none"
-            />
+        <div class="space-y-4">
+          <h3
+            class="text-xs font-semibold text-gray-500 uppercase tracking-wider"
+          >
+            Find Me Online
+          </h3>
+          <div class="flex flex-col gap-3">
+            {
+              navItems.map((item) => (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-3 text-gray-300 hover:text-indigo-400 font-medium transition-colors group"
+                >
+                  <span>{item.label}</span>
+                  <span class="text-xs text-gray-500 group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
 
-            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div class="sm:col-span-full">
-                    <label
-                        for="email"
-                        class="block text-sm/6 font-medium text-white"
-                        >Email</label
-                    >
-                    <div class="mt-2">
-                        <div
-                            class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
-                        >
-                            <input
-                                id="email"
-                                type="email"
-                                name="email"
-                                placeholder="johndoe@example.com"
-                                required
-                                class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
-                            />
-                        </div>
-                    </div>
-                </div>
+      <form
+        id="contact-form"
+        action="https://api.staticforms.dev/submit"
+        method="POST"
+        class="md:col-span-3 space-y-6 relative"
+      >
+        <input type="hidden" name="apiKey" value={apiKey} />
+        <input type="text" name="_honey" class="hidden" style="display:none" />
+        <input type="hidden" name="subject" value="Contact Form Submission" />
 
-                <div class="col-span-full">
-                    <label
-                        for="message"
-                        class="block text-sm/6 font-medium text-white"
-                        >Your Message</label
-                    >
-                    <div class="mt-2">
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="6"
-                            placeholder="Type your message here..."
-                            maxlength="2000"
-                            required
-                            class="block w-full h-48 rounded-md bg-white/5 px-3 pt-2 pb-10 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
-                        ></textarea>
-                        <span
-                            class="absolute right-1 text-xs text-gray-400 select-none pointer-events-none"
-                            id="char-count">0/2000</span
-                        >
-                    </div>
-                </div>
-
-                <div class="mt-6 flex items-center justify-start gap-x-6">
-                    <button
-                        id="submit-btn"
-                        type="submit"
-                        class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        Send Message
-                    </button>
-                </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-white">
+            Email Address
+          </label>
+          <div class="mt-2">
+            <div
+              class="flex items-center rounded-md bg-white/5 pl-3 outline outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
+            >
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="johndoe@example.com"
+                required
+                class="block min-w-0 grow bg-transparent py-2 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm"
+              />
             </div>
-        </form>
+          </div>
+        </div>
+
+        <div class="relative">
+          <label for="message" class="block text-sm font-medium text-white">
+            Your Message
+          </label>
+          <div class="mt-2 relative">
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Type your message here..."
+              maxlength="2000"
+              required
+              class="block w-full h-48 rounded-md bg-white/5 px-3 pt-2 pb-10 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm"
+            ></textarea>
+            <span
+              class="absolute right-3 bottom-2 text-xs text-gray-400 select-none pointer-events-none"
+              id="char-count">0/2000</span
+            >
+          </div>
+        </div>
+
+        <div class="flex items-center justify-start">
+          <button
+            id="submit-btn"
+            type="submit"
+            class="w-full sm:w-auto rounded-md bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-400 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </footer>
 
 <script>
-    const form = document.getElementById("contact-form") as HTMLFormElement;
-    const successMessage = document.getElementById("success-message");
-    const submitBtn = document.getElementById(
-        "submit-btn",
-    ) as HTMLButtonElement;
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const footerGrid = document.getElementById("footer-grid");
+  const successMessage = document.getElementById("success-message");
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const textarea = document.getElementById("message") as HTMLTextAreaElement;
+  const charCount = document.getElementById("char-count");
 
-    const textarea = document.getElementById("message") as HTMLTextAreaElement;
-    const charCount = document.getElementById("char-count");
+  // Live Character Counter Logic
+  if (textarea && charCount) {
+    textarea.addEventListener("input", () => {
+      const currentLength = textarea.value.length;
+      charCount.textContent = `${currentLength}/2000`;
 
-    // Live Character Counter Logic
-    if (textarea && charCount) {
-        textarea.addEventListener("input", () => {
-            const currentLength = textarea.value.length;
-            charCount.textContent = currentLength.toString() + "/2000";
+      if (currentLength >= 1900) {
+        charCount.classList.remove("text-gray-400");
+        charCount.classList.add("text-amber-500", "font-bold");
+      } else {
+        charCount.classList.remove("text-amber-500", "font-bold");
+        charCount.classList.add("text-gray-400");
+      }
+    });
+  }
 
-            // FIXED: Swap classList updates straight to charCount element
-            if (currentLength >= 1900) {
-                charCount.classList.remove("text-gray-400");
-                charCount.classList.add("text-amber-500", "font-bold");
-            } else {
-                charCount.classList.remove("text-amber-500", "font-bold");
-                charCount.classList.add("text-gray-400");
-            }
+  if (form && successMessage && submitBtn && footerGrid) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
         });
-    }
 
-    if (form && successMessage && submitBtn) {
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault(); // Stop the default page redirect
-
-            // UI State: Change button text and disable it to prevent double clicks
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Sending...";
-
-            // Gather the data straight from the HTML form elements
-            const formData = new FormData(form);
-
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        Accept: "application/json",
-                    },
-                });
-
-                if (response.ok) {
-                    // Hide the form smoothly, and reveal the beautiful success markup
-                    form.classList.add("hidden");
-                    successMessage.classList.remove("hidden");
-                } else {
-                    throw new Error("Form submission failed");
-                }
-            } catch (error) {
-                alert(
-                    "Oops! There was a problem submitting your form. Please try again.",
-                );
-                submitBtn.disabled = false;
-                submitBtn.innerText = "Send Message";
-            }
-        });
-    }
+        if (response.ok) {
+          // Hide the entire grid layout and reveal the success state cleanly
+          footerGrid.classList.add("hidden");
+          successMessage.classList.remove("hidden");
+        } else {
+          throw new Error("Form submission failed");
+        }
+      } catch (error) {
+        alert(
+          "Oops! There was a problem submitting your form. Please try again.",
+        );
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Message";
+      }
+    });
+  }
 </script>
