@@ -1,90 +1,72 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Contact from "../components/Contact.astro";
-import Experience from "../components/Experience.astro";
-import ProjectsGrid from "../components/ProjectsGrid.astro";
-import AboutMe from "../components/AboutMe.astro";
+import Container from '../components/Container.astro';
+import Navbar from '../components/Navbar.astro';
+import AboutMe from '../components/AboutMe.astro';
+import Experience from '../components/Experience.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+import Contact from '../components/Contact.astro';
+import Layout from '../layouts/Layout.astro';
+ 
+// Layout:
+//   Hero Section: who I am, stack, and killer hook
+//   Experience / Achievements: Where I worked / significant tech milestone
+//   Feature Projects: 2 - 3 projects I am proud of, with architecture details, GH link, and live demo (if app.)
+//   Footer
+
 ---
 
-<!-- 
-Layout:
-  Hero Section: who I am, stack, and killer hook
-  Experience / Achievements: Where I worked / significant tech milestone
-  Feature Projects: 2 - 3 projects I am proud of, with architecture details, GH link, and live demo (if app.)
-  Footer
--->
 <Layout>
   <Navbar />
 
-  <main
-    id="home"
-    class="max-w-6xl mx-auto w-full px-6 min-h-screen flex flex-col justify-center items-center text-center pt-16"
-  >
-    <h1
-      class="text-5xl sm:text-6xl font-extrabold tracking-tight mb-4 text-white"
-    >
-      Hi there, I'm <span
-        class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none inline-block"
-        >Derrick La</span
-      >
-    </h1>
-    <p class="text-xl text-brand-muted mb-8 max-w-2xl mx-auto">
-      Welcome to my portfolio. Have a look around and feel free to contact me.
-    </p>
-    <a
-      href="#experience"
-      class="inline-block bg-brand-primary hover:bg-indigo-600 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-indigo-500/20 transition-all duration-200"
-    >
-      View My Experience
-    </a>
+  <main id="home" class="min-h-screen pt-16">
+    <Container className="flex flex-col justify-center items-center text-center h-full min-h-[80vh]">
+      <h1 class="text-5xl sm:text-7xl lg:text-7xl font-extrabold tracking-tight mb-6 text-white leading-none">
+        Hi there, I'm <span class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none inline-block">Derrick La</span>
+      </h1>
+      
+      <p class="text-xl sm:text-2xl text-brand-muted mb-10 max-w-4xl mx-auto balance">
+        Welcome to my portfolio. Have a look around and feel free to contact me.
+      </p>
+      
+      <a href="#experience" class="inline-block bg-brand-primary hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-indigo-500/20 transition-all duration-200 text-lg">
+        View My Experience
+      </a>
+    </Container>
   </main>
 
-  <section
-    id="about"
-    class="max-w-6xl mx-auto w-full px-6 py-24 min-h-[50vh] scroll-mt-16"
-  >
-    <AboutMe />
+  <section id="about" class="py-24 scroll-mt-16">
+    <Container>
+      <AboutMe />
+    </Container>
   </section>
 
-  <section
-    id="experience"
-    class="max-w-6xl mx-auto w-full px-6 py-24 min-h-screen scroll-mt-16"
-  >
-    <div class="text-center mb-16">
-      <h2
-        class="text-4xl font-extrabold text-zinc-100 tracking-tight mt-2 text-center"
-      >
-        Where I've <span
-          class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none"
-          >Worked</span
-        >
+  <section id="experience" class="py-24 scroll-mt-16">
+    <Container>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-extrabold text-zinc-100 tracking-tight mt-2 text-center">
+          Where I've <span class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none">Worked</span>
+        </h2>
+        <p class="text-sm text-zinc-500 mt-2">
+          From health startups to securing company data.
+        </p>
+      </div>
+      <Experience />
+    </Container>
+  </section>
+
+  <section id="projects" class="py-24 scroll-mt-16">
+    <Container>
+      <h2 class="text-4xl font-bold mb-8 text-center md:text-right">
+        Featured <span class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none">Projects</span>
       </h2>
-      <p class="text-sm text-zinc-500 mt-2">
-        From health startups to securing company data.
-      </p>
-    </div>
-    <Experience />
+      <ProjectsGrid />
+    </Container>
   </section>
 
-  <section
-    id="projects"
-    class="max-w-6xl mx-auto w-full px-6 py-24 min-screen scroll-mt-16"
-  >
-    <h2 class="text-4xl font-bold mb-8 text-center md:text-right">
-      Featured <span
-        class="bg-gradient-to-r from-fuchsia-400 via-purple-500 via-emerald-500 to-orange-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-lava select-none"
-        >Projects</span
-      >
-    </h2>
-    <ProjectsGrid />
-  </section>
-
-  <section
-    id="contact"
-    class="max-w-6xl mx-auto w-full px-6 py-24 scroll-mt-16"
-  >
-    <Contact />
+  <section id="contact" class="py-24 scroll-mt-16">
+    <Container>
+      <Contact />
+    </Container>
   </section>
 </Layout>
 
