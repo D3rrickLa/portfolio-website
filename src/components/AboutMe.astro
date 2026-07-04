@@ -4,17 +4,16 @@ const profile = {
     first: "Derrick",
     last: "La",
   },
-  // Frames you as an operations & security specialist who writes code, rather than a code-monkey
-  role: "Systems & Security-Minded Developer",
+  role: "Systems & Security-Minded Infrastructure Engineer",
 
   deck: {
     left: {
-      title: "Sec-Ops & Defense",
+      title: "SecOps & Defense",
       desc: "Managed 50+ CrowdStrike & ReliaQuest enterprise alerts at PointClickCare. Governed cloud environments by auditing and tagging 1,000+ apps in Defender for Cloud Apps.",
     },
     center: {
       title: "My Framework",
-      desc: "Bridging York CS and Sheridan Systems Tech. I don't just follow operational playbooks—I write the code and build the automation frameworks that replace them.",
+      desc: "Bridging York CS and Sheridan Systems Tech. I don't just follow operational playbooks, I write the code and build the automation frameworks that replace them.",
     },
     right: {
       title: "Automation & Tools",
@@ -24,8 +23,8 @@ const profile = {
 
   mindset: {
     title: "Mindset",
-    highlight: "If a system requires manual repetition, it a script is required.",
-    body: "I thrive when given complex system problems and the autonomy to build the solution. From deploying 10+ QA servers to architecting containerized microservices, I build resilience into infrastructure.",
+    highlight: "Systems should evolve, not repeat.",
+    body: "I work best when given complex system problems and the autonomy to design the architecture. Success isn't merely completing a routine task, but engineering a permanent, automated solution that makes infrastructure inherently resilient.",
     images: [
       {
         src: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=3000&auto=format&fit=crop",
@@ -40,14 +39,14 @@ const profile = {
       {
         src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=3000&auto=format&fit=crop",
         alt: "Security monitoring tools displaying telemetry",
-        badge: "Sec-Ops & Governance",
+        badge: "SecOps & Governance",
       },
     ],
     footer: "System friction is the enemy. Engineered automation is the solution.",
   },
 
   avatar: {
-    src: "https://avatars.githubusercontent.com/u/97642394?v=4",
+    src: "/other_img/profile.jpg",
     alt: "Derrick La Portrait",
     location: "Toronto, Canada",
     coordinates: "43.6532° N, 79.3832° W",
@@ -55,9 +54,9 @@ const profile = {
   },
 
   craft: {
-    title: "The Stack",
-    highlight: "Architecting reliable, guarded systems across enterprise networks.",
-    advice: "Graduated with an Advanced Diploma in Computer System Technology and a deep background in SecOps, QA, and cloud deployments. I build, test, and guard systems with production-grade stability in mind.",
+    title: "Craft",
+    highlight: "Translating architectural designs into production-grade deployments.",
+    advice: "With a foundation in Computer Systems Technology and deeper training from a Computer Science degree, I combine systems knowledge with software design to build clean backends, secure cloud pipelines, and automated test suites.",
     techStack: [
       { name: "Python", slug: "python" },
       { name: "Git", slug: "git" },
@@ -72,7 +71,7 @@ const profile = {
       { name: "TensorFlow", slug: "tensorflow" },
       { name: "Java", slug: "java" },
     ],
-    footer: "Let's build, script, and secure your systems infrastructure.",
+    footer: "Building with an emphasis on visibility, scale, and ironclad security.",
     statusText: "Open to Systems, SecOps, & DevOps roles",
   },
 };
@@ -95,7 +94,7 @@ const profile = {
         <span class="text-zinc-400 font-medium drop-shadow-[0_0_8px_rgba(211,236,240,0.4)]">{profile.name.last}</span>
       </h1>
       <p
-        class="text-[10px] text-zinc-500 font-mono tracking-widest uppercase mt-1"
+        class="text-[12px] text-zinc-500 font-mono tracking-widest uppercase mt-1"
       >
         {profile.role}
       </p>
@@ -111,75 +110,52 @@ const profile = {
         Hover to read more
       </span>
 
-      <div
-        class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28"
-      >
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none"
-        >
-          <div
-            class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
-                                lg:absolute lg:top-1 lg:left-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:-rotate-6 lg:z-10
-                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-15 hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-amber-500/50"
-          >
-            <h4
-              class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-amber-400"
-            >
-              {profile.deck.left.title}
-            </h4>
-            <p
-              class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block"
-            >
-              {profile.deck.left.desc}
-            </p>
-            <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">
-              {profile.deck.left.desc}
-            </p>
+      <div class="relative w-full flex flex-col items-center justify-center min-h-[220px] lg:min-h-0 lg:h-28">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:block relative w-full max-w-md lg:max-w-none">
+          <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card relative lg:absolute lg:top-1 lg:left-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:-rotate-6 lg:z-10 hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-[60px] hover:lg:-rotate-2 hover:lg:z-30 hover:lg:border-orange-500/60 hover:shadow-[0_0_30px_-5px_rgba(245,158,11,0.4),0_20px_25px_-5px_rgba(0,0,0,0.7)]">
+            <div class="relative z-10">
+              <h4 class="text-xs font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-amber-400">
+                {profile.deck.left.title}
+              </h4>
+              <p class="text-[11px] text-zinc-500 leading-normal mt-2 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
+                {profile.deck.left.desc}
+              </p>
+              <p class="text-[11px] text-zinc-500 leading-normal mt-1 lg:hidden">
+                {profile.deck.left.desc}
+              </p>
+            </div>
           </div>
 
-          <div
-            class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
-                                lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-24 lg:z-20
-                                hover:lg:h-40 hover:lg:-translate-y-15 hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60"
-          >
-            <h4
-              class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400"
-            >
+          <div class="bg-zinc-950 p-4 rounded-xl border border-zinc-700/60 shadow-2xl transition-all duration-300 ease-out cursor-pointer mb-3 md:mb-0 group/card
+                      lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2 lg:w-56 lg:h-24 lg:z-20
+                      hover:lg:h-40 hover:lg:-translate-y-[60px] hover:lg:scale-102 hover:lg:z-30 hover:lg:border-purple-500/60
+                      hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.4),0_20px_25px_-5px_rgba(0,0,0,0.7)]">
+            <h4 class="text-xs font-bold font-mono text-white uppercase text-center transition-colors group-hover/card:text-purple-400">
               {profile.deck.center.title}
             </h4>
-            <p
-              class="text-[11px] text-zinc-400 leading-normal mt-2 text-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block"
-            >
+            <p class="text-[11px] text-zinc-400 leading-normal mt-2 text-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
               {profile.deck.center.desc}
             </p>
-            <p
-              class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden"
-            >
+            <p class="text-[11px] text-zinc-400 leading-normal mt-1 text-center lg:hidden">
               {profile.deck.center.desc}
             </p>
           </div>
 
-          <div
-            class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
-                                lg:absolute lg:top-1 lg:right-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:rotate-6 lg:z-10
-                                hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-15 hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-cyan-500/50"
-          >
-            <h4
-              class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-cyan-400"
-            >
+          <div class="bg-zinc-950/90 p-4 rounded-xl border border-zinc-800/80 shadow-md transition-all duration-300 ease-out cursor-pointer group/card
+                      lg:absolute lg:top-1 lg:right-[5%] lg:w-56 lg:h-24 lg:opacity-60 lg:rotate-6 lg:z-10
+                      hover:lg:h-40 hover:lg:opacity-100 hover:lg:-translate-y-[60px] hover:lg:rotate-2 hover:lg:z-30 hover:lg:border-cyan-500/50
+                      hover:shadow-[0_0_30px_-5px_rgba(6,182,212,0.4),0_20px_25px_-5px_rgba(0,0,0,0.7)]">
+            <h4 class="text-xs text-right font-bold font-mono text-zinc-400 uppercase transition-colors group-hover/card:text-cyan-400">
               {profile.deck.right.title}
             </h4>
-            <p
-              class="text-[11px] text-zinc-500 leading-normal mt-2 text-right opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block"
-            >
+            <p class="text-[11px] text-zinc-500 leading-normal mt-2 text-right opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 delay-75 hidden lg:block">
               {profile.deck.right.desc}
             </p>
-            <p
-              class="text-[11px] text-zinc-500 leading-normal mt-1 text-right lg:hidden"
-            >
+            <p class="text-[11px] text-zinc-500 leading-normal mt-1 text-right lg:hidden">
               {profile.deck.right.desc}
             </p>
           </div>
+
         </div>
       </div>
     </div>
@@ -202,43 +178,43 @@ const profile = {
         </p>
       </div>
 
-   <!-- Interactive 3D Spread Deck Wrapper -->
-    <div
-      class="mindset-carousel my-6 relative h-56 w-full z-10 group/carousel"
-      style="perspective: 1200px;"
-    >
-      <!-- Stacked Spread Container -->
-      <div class="deck-container w-full h-full relative flex items-center justify-center">
-        {
-          profile.mindset.images.map((img, index) => (
-            <div
-              class="deck-card absolute w-[70%] h-[85%] rounded-xl overflow-hidden shadow-2xl border border-zinc-800/80"
-              data-index={index}
-            >
-              <!-- Subtle Gradient Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10 select-none pointer-events-none" />
-              
-              <!-- Slide Image -->
-              <img
-                src={img.src}
-                alt={img.alt}
-                class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 card-img"
-                style="opacity: 0.75;"
-              />
-              
-              <!-- Badge Content -->
-              <div class="carousel-content absolute bottom-4 left-4 z-20 transition-opacity duration-300">
-                <span class="text-xs font-mono uppercase font-bold text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                  {img.badge}
-                </span>
+      <!-- Interactive 3D Spread Deck Wrapper -->
+      <div
+        class="mindset-carousel my-6 relative h-50 w-full z-10 group/carousel"
+        style="perspective: 1200px;"
+      >
+        <!-- Stacked Spread Container -->
+        <div class="deck-container w-full h-full relative flex items-center justify-center">
+          {
+            profile.mindset.images.map((img, index) => (
+              <div
+                class="deck-card absolute w-[70%] h-[85%] rounded-xl overflow-hidden shadow-2xl border border-zinc-800/80"
+                data-index={index}
+              >
+                <!-- Subtle Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10 select-none pointer-events-none" />
+                
+                <!-- Slide Image -->
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 card-img"
+                  style="opacity: 0.75;"
+                />
+                
+                <!-- Badge Content -->
+                <div class="carousel-content absolute bottom-4 left-4 z-20 transition-opacity duration-300">
+                  <span class="text-xs font-mono uppercase font-bold text-fuchsia-300 tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                    {img.badge}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))
-        }
-      </div>
+            ))
+          }
+        </div>
 
       <!-- Tiny Navigation Dots -->
-      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 flex gap-1.5">
+      <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-40 flex gap-1.5">
         {
           profile.mindset.images.map((_, index) => (
             <button
@@ -264,7 +240,7 @@ const profile = {
         <img
           src={profile.avatar.src}
           alt={profile.avatar.alt}
-          class="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform"
+          class="absolute md:object-[42%_100%] inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform"
         />
         <div
           class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-90 z-10"
@@ -311,10 +287,10 @@ const profile = {
             class="absolute bottom-[-4px] left-0 w-8 h-[3px] bg-gradient-to-r from-cyan-500 to-purple-500 rounded transition-opacity duration-300 group-hover:opacity-0"
           ></span>
         </h2>
-        <p class="text-zinc-400 text-sm leading-relaxed mt-4">
-          {profile.craft.highlight}
+        <p class="text-zinc-100 text-sm leading-relaxed mt-4">
+          <strong>{profile.craft.highlight}</strong>
         </p>
-        <p class="text-zinc-500 text-xs leading-relaxed mt-3">
+        <p class="text-zinc-400 text-sm leading-relaxed mt-3">
           {profile.craft.advice}
         </p>
       </div>
@@ -331,16 +307,14 @@ const profile = {
         >
         </div>
 
-        <div
-          class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-white font-mono uppercase font-semibold"
-        >
+        <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-xs md:text-sm text-white font-mono uppercase font-semibold">
           {
             profile.craft.techStack.map((tech) => (
-              <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5">
+              <span class="bg-zinc-950 px-4 py-2.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5 stabilization">
                 <img
                   src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.slug}/${tech.slug}-original.svg`}
                   alt={`${tech.name} logo`}
-                  class="w-4 h-4 object-contain tracking-normal"
+                  class="w-5 h-5 object-contain tracking-normal"
                   loading="lazy"
                 />
                 {tech.name}
@@ -348,17 +322,15 @@ const profile = {
             ))
           }
         </div>
-        <div
-          class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-[10px] text-white font-mono uppercase font-semibold"
-          aria-hidden="true"
-        >
+
+        <div class="flex gap-4 flex-none min-w-full justify-around animate-marquee text-xs md:text-sm text-white font-mono uppercase font-semibold" aria-hidden="true">
           {
             profile.craft.techStack.map((tech) => (
-              <span class="bg-zinc-950 px-3 py-1.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5">
+              <span class="bg-zinc-950 px-4 py-2.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5 stabilization">
                 <img
                   src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.slug}/${tech.slug}-original.svg`}
                   alt={`${tech.name} logo`}
-                  class="w-4 h-4 object-contain tracking-normal"
+                  class="w-5 h-5 object-contain tracking-normal"
                   loading="lazy"
                 />
                 {tech.name}
@@ -372,12 +344,8 @@ const profile = {
         <p class="text-xs text-zinc-400 leading-relaxed mb-4">
           {profile.craft.footer}
         </p>
-        <div
-          class="flex items-center gap-2 text-xs font-medium text-emerald-400"
-        >
-          <span
-            class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#56D677] animate-pulse"
-          ></span>
+        <div class="flex items-center gap-2 text-xs font-medium text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#56D677] animate-pulse"></span>
           {profile.craft.statusText}
         </div>
       </div>
@@ -447,7 +415,7 @@ const profile = {
     100% { transform: translateX(calc(-100% - 1rem)); }
   }
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 45s linear infinite;
   }
 </style>
 
