@@ -1,20 +1,91 @@
 <div id="global-spotlight-bg" class="fixed inset-0 -z-50 h-full w-full bg-[#050B14] pointer-events-none overflow-hidden">
   
-  <!-- 1. Deep Ambient Colorful Glows -->
-  <div class="absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
+  <!-- Deep Ambient Colorful Glows -->
+  <div class="absolute inset-0 opacity-95 transition-opacity duration-700 ease-in-out">
     <div class="absolute top-0 left-0 w-[50vw] h-[50vw] bg-radial from-blue-900/20 via-transparent to-transparent blur-3xl"></div>
     <div class="absolute top-0 right-0 w-[50vw] h-[50vw] bg-radial from-slate-600/15 via-transparent to-transparent blur-3xl"></div>
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60vw] h-[50vw] bg-radial from-indigo-600/15 via-transparent to-transparent blur-3xl"></div>
   </div>
 
-  <!-- 2. The Interactive Dotted Graph Paper Grid Layer -->
+  <div class="absolute inset-0 opacity-10 mix-blend-screen">
+    <div class="absolute top-[10%] left-[-10%] w-[60vw] h-[60vw] bg-radial from-blue-900/15 via-transparent to-transparent blur-3xl animate-cosmic-slow"></div>
+    <div class="absolute top-[5%] right-[-10%] w-[50vw] h-[50vw] bg-radial from-slate-500/10 via-transparent to-transparent blur-3xl animate-cosmic-delayed"></div>
+    <div class="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[80vw] h-[70vw]">
+      <div class="w-full h-full bg-radial from-indigo-600/15 via-transparent to-transparent blur-3xl animate-cosmic-reverse"></div>
+    </div>
+  </div>
+
   <div class="absolute inset-0 dot-grid-mask"></div>
 </div>
+
+<style>
+  .dot-grid-mask {
+    background-image: radial-gradient(#ffffff 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.05; 
+    
+    @media (min-width: 1024px) {
+      opacity: 0.35;
+      mask-image: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        black 0%, 
+        rgba(0, 0, 0, 0.2) 40%, 
+        transparent 100-percent
+      );
+      -webkit-mask-image: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        black 0%, 
+        rgba(0, 0, 0, 0.2) 40%, 
+        transparent 100%
+      );
+      transition: opacity 500s ease;
+    }
+  }
+
+  @keyframes cosmic-drift {
+    0% {
+      transform: translate(0%, 0%) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(25%, -15%) scale(1.2) rotate(45deg);
+    }
+    66% {
+      transform: translate(-15%, 20%) scale(0.85) rotate(-45deg);
+    }
+    100% {
+      transform: translate(0%, 0%) scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes cosmic-drift-reverse {
+    0% {
+      transform: translate(0%, 0%) scale(1);
+    }
+    50% {
+      transform: translate(-20%, -15%) scale(1.25);
+    }
+    100% {
+      transform: translate(0%, 0%) scale(1);
+    }
+  }
+
+  .animate-cosmic-slow {
+    animation: cosmic-drift 40s ease-in-out infinite;
+  }
+  
+  .animate-cosmic-delayed {
+    animation: cosmic-drift 55s ease-in-out infinite;
+    animation-delay: -10s;
+  }
+
+  .animate-cosmic-reverse {
+    animation: cosmic-drift-reverse 45s ease-in-out infinite;
+  }
+</style>
 
 <script>
   const bg = document.getElementById('global-spotlight-bg');
 
-  // Only bind mouse listeners if the viewport is a desktop screen width (>= 1024px)
   if (bg && window.matchMedia('(min-width: 1024px)').matches) {
     const handleMouseMove = (e: MouseEvent) => {
       bg.style.setProperty('--mouse-x', `${e.clientX}px`);
@@ -24,33 +95,3 @@
     window.addEventListener('mousemove', handleMouseMove);
   }
 </script>
-
-<style>
-  .dot-grid-mask {
-    background-image: radial-gradient(#ffffff 1px, transparent 1px);
-    background-size: 32px 32px;
-    
-    /* MOBILE BEHAVIOR: Just keep it flat or subtly visible over the whole area on mobile */
-    opacity: 0.05; 
-    
-    /* DESKTOP BEHAVIOR: Enable interactive radial mask tracking */
-    @media (min-width: 1024px) {
-      opacity: 0.35;
-      
-      mask-image: radial-gradient(
-        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        black 0%, 
-        rgba(0, 0, 0, 0.2) 40%, 
-        transparent 100%
-      );
-      -webkit-mask-image: radial-gradient(
-        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        black 0%, 
-        rgba(0, 0, 0, 0.2) 40%, 
-        transparent 100%
-      );
-      
-      transition: opacity 500s ease;
-    }
-  }
-</style>

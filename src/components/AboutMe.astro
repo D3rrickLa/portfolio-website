@@ -1,4 +1,7 @@
 ---
+import Image from "astro/components/Image.astro";
+import profileImage from '../assets/profile.jpg';
+
 const profile = {
   name: {
     first: "Derrick",
@@ -46,7 +49,7 @@ const profile = {
   },
 
   avatar: {
-    src: "/other_img/profile.jpg",
+    src: profileImage,
     alt: "Derrick La Portrait",
     location: "Toronto, Canada",
     coordinates: "43.6532° N, 79.3832° W",
@@ -195,11 +198,13 @@ const profile = {
                 <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-10 select-none pointer-events-none" />
                 
                 <!-- Slide Image -->
-                <img
+                <Image
                   src={img.src}
                   alt={img.alt}
                   class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 card-img"
                   style="opacity: 0.75;"
+                  width={"800"}
+                  height={"500"}
                 />
                 
                 <!-- Badge Content -->
@@ -237,7 +242,7 @@ const profile = {
       class="bg-zinc-900 border border-zinc-800/80 rounded-3xl overflow-hidden lg:row-span-3 flex flex-col justify-between group hover:border-purple-500/40 transition-all duration-300 h-[450px] lg:h-auto shadow-[0_0_20px_rgba(0,0,0,0.8)]"
     >
       <div class="w-full flex-1 bg-zinc-950 relative overflow-hidden">
-        <img
+        <Image
           src={profile.avatar.src}
           alt={profile.avatar.alt}
           class="absolute md:object-[43%_100%] inset-0 w-full h-full object-cover opacity-80 transition-transform duration-500 ease-out group-hover:scale-105 backface-hidden will-change-transform"
@@ -312,9 +317,11 @@ const profile = {
           {
             profile.craft.techStack.map((tech) => (
               <span class="bg-zinc-950 px-4 py-2.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5 stabilization">
-                <img
+                <Image
                   src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.slug}/${tech.slug}-original.svg`}
                   alt={`${tech.name} logo`}
+                  width={"20"}
+                  height={"20"}
                   class="w-5 h-5 object-contain tracking-normal"
                   loading="lazy"
                 />
@@ -328,9 +335,11 @@ const profile = {
           {
             profile.craft.techStack.map((tech) => (
               <span class="bg-zinc-950 px-4 py-2.5 rounded-md border border-zinc-800/80 shadow-sm shadow-purple-500/5 flex items-center gap-2.5 stabilization">
-                <img
+                <Image
                   src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.slug}/${tech.slug}-original.svg`}
                   alt={`${tech.name} logo`}
+                  width={"20"}
+                  height={"20"}
                   class="w-5 h-5 object-contain tracking-normal"
                   loading="lazy"
                 />
