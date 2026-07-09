@@ -3,7 +3,7 @@ import * as resume from "./resume/resume.md";
 const compiled = await resume.compiledContent();
 const posts = Object.values(import.meta.glob("./resume/*.md", {eager: true}))
 ---
-<h1>something here</h1>
+<h1>Derrick La</h1>
 
 <Fragment set:html={compiled} />
 
