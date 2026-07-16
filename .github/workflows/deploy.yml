@@ -29,7 +29,7 @@ jobs:
             # build-cmd: pnpm run build # The command to run to build your site. Runs the package build script/task by default. (optional)
             # out-dir: dist # The output directory created by the build command. Defaults to dist. (optional)
         env: 
-          PUBLIC_FORM_API_KEY: ${{ secrets.PUBLIC_FORM_API_KEY }}
+          PUBLIC_STATIC_FORMS_KEY: ${{ secrets.PUBLIC_STATIC_FORMS_KEY }}
 
   deploy:
     needs: build
