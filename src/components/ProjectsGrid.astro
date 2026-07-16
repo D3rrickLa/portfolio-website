@@ -11,17 +11,24 @@ interface ProjectProps {
 
 const projects: ProjectProps[] = [
     {
-        image: "public/project_img/project_fortunelink_homepage.jpeg",
+        image: "project_img/project_fortunelink_homepage.jpeg", //  Corrected path
         tag: "Web App",
         title: "FortuneLink",
         description:
             "Web Application meant to track and monitor one's personal finance for a better understanding on where their money is going.",
         startEndYear: "2025 - 2026",
-        techStack: ["Spring Boot", "Java", "TypeScript", "Next.js", "Redis", "PostgreSQL"],
-        accentColor: "#FF5E00", // Clean hex value
+        techStack: [
+            "Spring Boot",
+            "Java",
+            "TypeScript",
+            "Next.js",
+            "Redis",
+            "PostgreSQL",
+        ],
+        accentColor: "#FF5E00",
     },
     {
-        image: "public/project_img/project2.jpg",
+        image: "project_img/streamsage_profile.png",
         tag: "Audio Plugin",
         title: "Streamsage",
         description:
@@ -31,16 +38,17 @@ const projects: ProjectProps[] = [
         accentColor: "#00A86B",
     },
     {
-        image: "public/project_img/project3.jpg",
+        image: "project_img/juceaudioplayerimage.png",
         tag: "Web App",
         title: "JUCE Audio Player",
-        description: "A development tool to play audio, used for testing JUCE VST",
+        description:
+            "A development tool to play audio, used for testing JUCE VST",
         startEndYear: "2024",
         techStack: ["C++", "JUCE", "DSP", "Audio"],
         accentColor: "#C127C1",
     },
     {
-        image: "public/project_img/TinysHandsTalkImage.jpg",
+        image: "project_img/TinysHandsTalkImage.jpg",
         tag: "Web App",
         title: "TinyHandsTalk",
         description:
@@ -52,13 +60,13 @@ const projects: ProjectProps[] = [
 ];
 ---
 
-<div class="max-w-7xl mx-auto w-full px-6 py-12 relative z-10">    
+<div class="max-w-7xl mx-auto w-full px-6 py-12 relative z-10">
     <!-- 1 col on mobile, 2 cols on tablet (md), 3 cols on desktop (lg) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
             projects.map((project, index) => {
                 const displayIndex = String(index + 1).padStart(2, "0");
-                
+
                 // Determine layout types based on the array position
                 const isFirst = index === 0;
                 const isSecond = index === 1;
@@ -68,10 +76,10 @@ const projects: ProjectProps[] = [
                         class={`border border-zinc-800 rounded-3xl overflow-hidden flex flex-col group transition-all duration-300 shadow-2xl bg-gradient-to-br from-zinc-950 via-zinc-950/90 to-[var(--project-accent)]/20
                             ${
                                 isFirst
-                                    ? "md:col-span-2 lg:col-span-3 lg:flex-row" 
+                                    ? "md:col-span-2 lg:col-span-3 lg:flex-row"
                                     : isSecond
-                                        ? "md:col-span-2 lg:col-span-1" 
-                                        : ""
+                                      ? "md:col-span-2 lg:col-span-1"
+                                      : ""
                             }`}
                         style={`--project-accent: ${project.accentColor};`}
                     >
@@ -82,12 +90,12 @@ const projects: ProjectProps[] = [
                                     isFirst
                                         ? "h-64 lg:h-auto lg:w-[38%] flex-none border-b lg:border-b-0 lg:border-r"
                                         : isSecond
-                                            ? "h-52 border-b md:h-64 md:lg:h-52" 
-                                            : "h-52 border-b"
+                                          ? "h-52 border-b md:h-64 md:lg:h-52"
+                                          : "h-52 border-b"
                                 }`}
                         >
                             <img
-                                src={project.image}
+                                src={`${import.meta.env.BASE_URL}${project.image}`}
                                 alt={project.title}
                                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500 ease-out opacity-90"
                             />
@@ -99,11 +107,7 @@ const projects: ProjectProps[] = [
                         {/* Project Details Box */}
                         <div
                             class={`flex flex-col flex-grow justify-between 
-                                ${
-                                    isFirst 
-                                        ? "lg:p-8 p-6" 
-                                        : "py-12 px-6"
-                                }`}
+                                ${isFirst ? "lg:p-8 p-6" : "py-12 px-6"}`}
                         >
                             <div>
                                 <div class="flex justify-between items-start mb-3 gap-4">
