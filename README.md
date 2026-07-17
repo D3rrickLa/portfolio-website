@@ -15,24 +15,28 @@ This site is designed to be clean, responsive, and easy to maintain — powered 
 - GitHub Pages - Hosting & deployment
 
 ## 📁 Project Structure
-Code
+Cod
+```
+
 /
 ├── public/          # Static assets
 ├── src/
 │   ├── assets/      # Images, icons, media
 │   ├── components/  # Reusable UI components
 │   ├── layouts/     # Page layouts
-│   └── pages/       # Route-based pages
+│   └── pages/       # Route-based page//s
 └── package.json
+```
 ### 🛠️ Development
 Run these commands from the project root:
 
-Command	Description
-bun install	Install dependencies
-bun dev	Start local dev server (localhost:4321)
-bun build	Build production output to /dist
-bun preview	Preview the production build
-bun astro ...	Run Astro CLI commands
+| Command | Description | 
+|---------|----------|
+| bun install	| Install dependencies |
+| bun dev | Start local dev server (```localhost:4321```) |
+| bun build	| Build production output to ```/dist``` |
+| bun preview | Preview the production build |
+| bun astro ```...```	| Run Astro CLI commands |
 
 
 ## 🎯 Purpose
